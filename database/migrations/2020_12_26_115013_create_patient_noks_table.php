@@ -17,10 +17,12 @@ class CreatePatientNoksTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('patient_id');
             $table->unsignedBigInteger('nok_id');
+            $table->unsignedBigInteger('created_by');
             $table->timestamps();
 
             $table->foreign('patient_id')->references('id')->on('patients');
             $table->foreign('nok_id')->references('id')->on('next_of_kin');
+            $table->foreign('created_by')->references('id')->on('users');
         });
     }
 

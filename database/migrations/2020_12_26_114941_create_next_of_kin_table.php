@@ -23,7 +23,10 @@ class CreateNextOfKinTable extends Migration
             $table->string('residence');
             $table->string('work_place');
             $table->string('phone');
+            $table->unsignedBigInteger('created_by');
             $table->timestamps();
+
+            $table->foreign('created_by')->references('id')->on('users');
         });
     }
 

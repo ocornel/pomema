@@ -24,7 +24,11 @@ class CreatePatientsTable extends Migration
             $table->dateTime('dob')->default(now());
             $table->string('residence');
             $table->string('phone');
+            $table->unsignedBigInteger('created_by');
             $table->timestamps();
+
+            $table->foreign('created_by')->references('id')->on('users');
+
         });
     }
 
