@@ -726,5 +726,334 @@
       <ObjectGrants>ALL PRIVILEGES|clinic_abok:null
 </ObjectGrants>
     </user>
+    <table id="227" parent="2" name="credits">
+      <Collation>utf8mb4_unicode_ci</Collation>
+    </table>
+    <table id="228" parent="2" name="migrations">
+      <Collation>utf8mb4_unicode_ci</Collation>
+    </table>
+    <table id="229" parent="2" name="next_of_kin">
+      <Collation>utf8mb4_unicode_ci</Collation>
+    </table>
+    <table id="230" parent="2" name="password_resets">
+      <Collation>utf8mb4_unicode_ci</Collation>
+    </table>
+    <table id="231" parent="2" name="patient_noks">
+      <Collation>utf8mb4_unicode_ci</Collation>
+    </table>
+    <table id="232" parent="2" name="patients">
+      <Collation>utf8mb4_unicode_ci</Collation>
+    </table>
+    <table id="233" parent="2" name="users">
+      <Collation>utf8mb4_unicode_ci</Collation>
+    </table>
+    <column id="234" parent="227" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="235" parent="227" name="patient_id">
+      <Position>2</Position>
+      <DataType>bigint(20) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="236" parent="227" name="due_date">
+      <Position>3</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;2020-12-26 18:50:59&apos;</DefaultExpression>
+    </column>
+    <column id="237" parent="227" name="amount_due">
+      <Position>4</Position>
+      <DataType>decimal(15,2 digit)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="238" parent="227" name="cleared">
+      <Position>5</Position>
+      <DataType>tinyint(1)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="239" parent="227" name="created_at">
+      <Position>6</Position>
+      <DataType>timestamp|0s</DataType>
+    </column>
+    <column id="240" parent="227" name="updated_at">
+      <Position>7</Position>
+      <DataType>timestamp|0s</DataType>
+    </column>
+    <index id="241" parent="227" name="credits_patient_id_foreign">
+      <ColNames>patient_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="242" parent="227" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="243" parent="227" name="credits_patient_id_foreign">
+      <ColNames>patient_id</ColNames>
+      <RefTableName>patients</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="244" parent="228" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="245" parent="228" name="migration">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="246" parent="228" name="batch">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="247" parent="228" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="248" parent="229" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="249" parent="229" name="first_name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="250" parent="229" name="last_name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="251" parent="229" name="other_names">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="252" parent="229" name="id_number">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="253" parent="229" name="dob">
+      <Position>6</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;2020-12-26 18:50:59&apos;</DefaultExpression>
+    </column>
+    <column id="254" parent="229" name="residence">
+      <Position>7</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="255" parent="229" name="work_place">
+      <Position>8</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="256" parent="229" name="phone">
+      <Position>9</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="257" parent="229" name="created_at">
+      <Position>10</Position>
+      <DataType>timestamp|0s</DataType>
+    </column>
+    <column id="258" parent="229" name="updated_at">
+      <Position>11</Position>
+      <DataType>timestamp|0s</DataType>
+    </column>
+    <key id="259" parent="229" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="260" parent="230" name="email">
+      <Position>1</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="261" parent="230" name="token">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="262" parent="230" name="created_at">
+      <Position>3</Position>
+      <DataType>timestamp|0s</DataType>
+    </column>
+    <index id="263" parent="230" name="password_resets_email_index">
+      <ColNames>email</ColNames>
+      <Type>btree</Type>
+    </index>
+    <column id="264" parent="231" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="265" parent="231" name="patient_id">
+      <Position>2</Position>
+      <DataType>bigint(20) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="266" parent="231" name="nok_id">
+      <Position>3</Position>
+      <DataType>bigint(20) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="267" parent="231" name="created_at">
+      <Position>4</Position>
+      <DataType>timestamp|0s</DataType>
+    </column>
+    <column id="268" parent="231" name="updated_at">
+      <Position>5</Position>
+      <DataType>timestamp|0s</DataType>
+    </column>
+    <index id="269" parent="231" name="patient_noks_patient_id_foreign">
+      <ColNames>patient_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="270" parent="231" name="patient_noks_nok_id_foreign">
+      <ColNames>nok_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="271" parent="231" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="272" parent="231" name="patient_noks_patient_id_foreign">
+      <ColNames>patient_id</ColNames>
+      <RefTableName>patients</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="273" parent="231" name="patient_noks_nok_id_foreign">
+      <ColNames>nok_id</ColNames>
+      <RefTableName>next_of_kin</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="274" parent="232" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="275" parent="232" name="pc_number">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="276" parent="232" name="first_name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="277" parent="232" name="last_name">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="278" parent="232" name="other_names">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="279" parent="232" name="sex">
+      <Position>6</Position>
+      <DataType>enum(&apos;M&apos;, &apos;F&apos;, &apos;O&apos;)|0e</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;F&apos;</DefaultExpression>
+    </column>
+    <column id="280" parent="232" name="dob">
+      <Position>7</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;2020-12-26 18:50:59&apos;</DefaultExpression>
+    </column>
+    <column id="281" parent="232" name="residence">
+      <Position>8</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="282" parent="232" name="phone">
+      <Position>9</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="283" parent="232" name="created_at">
+      <Position>10</Position>
+      <DataType>timestamp|0s</DataType>
+    </column>
+    <column id="284" parent="232" name="updated_at">
+      <Position>11</Position>
+      <DataType>timestamp|0s</DataType>
+    </column>
+    <key id="285" parent="232" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="286" parent="233" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="287" parent="233" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="288" parent="233" name="email">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="289" parent="233" name="email_verified_at">
+      <Position>4</Position>
+      <DataType>timestamp|0s</DataType>
+    </column>
+    <column id="290" parent="233" name="password">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="291" parent="233" name="remember_token">
+      <Position>6</Position>
+      <DataType>varchar(100)|0s</DataType>
+    </column>
+    <column id="292" parent="233" name="created_at">
+      <Position>7</Position>
+      <DataType>timestamp|0s</DataType>
+    </column>
+    <column id="293" parent="233" name="updated_at">
+      <Position>8</Position>
+      <DataType>timestamp|0s</DataType>
+    </column>
+    <index id="294" parent="233" name="users_email_unique">
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="295" parent="233" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="296" parent="233" name="users_email_unique">
+      <ColNames>email</ColNames>
+      <UnderlyingIndexName>users_email_unique</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>

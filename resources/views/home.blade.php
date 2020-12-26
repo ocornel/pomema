@@ -15,6 +15,10 @@
                     @endif
 
                     You are logged in!
+                    <ul>
+                        <li><a href="{{ route('patients') }}">Patients</a></li>
+{{--                        <li>Patients</li>--}}
+                    </ul>
                 </div>
             </div>
         </div>

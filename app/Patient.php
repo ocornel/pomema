@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\URL;
+use Carbon\Carbon;
 
 class Patient extends Model
 {
@@ -17,5 +19,15 @@ class Patient extends Model
     const SEX_MALE = 'M';
     const SEX_FEMALE = 'F';
     const SEX_OTHER = 'O';
+
+    public function getFullNameAttribute()
+    {
+        return $this->first_name . ' ' . $this->other_names . ' ' . $this->last_name;
+    }
+
+    public function getAgeAttribute() {
+        return Carbon::parse($this->dob)->diff(Carbon::now())->format('%yY %mM %dD');
+
+    }
 
 }

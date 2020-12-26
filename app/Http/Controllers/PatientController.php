@@ -7,14 +7,24 @@ use Illuminate\Http\Request;
 
 class PatientController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function index()
     {
-        //
+        $patients = Patient::all();
+        $context = [
+            'patients'=> $patients
+        ];
+        return view('patient.index', $context);
     }
 
     /**
@@ -24,7 +34,7 @@ class PatientController extends Controller
      */
     public function create()
     {
-        //
+        dd("create patient here");
     }
 
     /**
@@ -35,18 +45,21 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd('store patient here', $request);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Patient  $patient
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function show(Patient $patient)
     {
-        //
+        $context = [
+            'patient' => $patient
+        ];
+        return view('patient.show', $context);
     }
 
     /**
@@ -57,7 +70,7 @@ class PatientController extends Controller
      */
     public function edit(Patient $patient)
     {
-        //
+        dd('edit patient here', $patient);
     }
 
     /**
@@ -69,7 +82,7 @@ class PatientController extends Controller
      */
     public function update(Request $request, Patient $patient)
     {
-        //
+        dd('update patient here', $patient, $request);
     }
 
     /**
@@ -80,6 +93,6 @@ class PatientController extends Controller
      */
     public function destroy(Patient $patient)
     {
-        //
+        dd('delete patient here', $patient);
     }
 }
