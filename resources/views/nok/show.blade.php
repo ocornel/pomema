@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ $patient->full_name }}</div>
+                    <div class="card-header">{{ $nok->full_name }}</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -14,9 +14,9 @@
                             </div>
                         @endif
 
-                            Patient details
+                            Next of Kin details
                             <br>
-                        {{$patient}}
+                        {{$nok}}
                     </div>
                 </div>
             </div>
