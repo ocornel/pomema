@@ -7,15 +7,24 @@ use Illuminate\Http\Request;
 
 class NextOfKinController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function index()
     {
-        //
-    }
+        $noks = NextOfKin::all();
+        $context = [
+            'noks'=> $noks
+        ];
+        return view('nok.index', $context);    }
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +33,7 @@ class NextOfKinController extends Controller
      */
     public function create()
     {
-        //
+        dd("create nok here");
     }
 
     /**
@@ -35,51 +44,54 @@ class NextOfKinController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd('store nok here', $request);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\NextOfKin  $nextOfKin
-     * @return \Illuminate\Http\Response
+     * @param  \App\NextOfKin  $nok
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
-    public function show(NextOfKin $nextOfKin)
+    public function show(NextOfKin $nok)
     {
-        //
+        $context = [
+            'nok' => $nok
+        ];
+        return view('nok.show', $context);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\NextOfKin  $nextOfKin
+     * @param  \App\NextOfKin  $nok
      * @return \Illuminate\Http\Response
      */
-    public function edit(NextOfKin $nextOfKin)
+    public function edit(NextOfKin $nok)
     {
-        //
+        dd('edit nok here', $nok);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\NextOfKin  $nextOfKin
+     * @param  \App\NextOfKin  $nok
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, NextOfKin $nextOfKin)
+    public function update(Request $request, NextOfKin $nok)
     {
-        //
+        dd('update nok here', $nok, $request);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\NextOfKin  $nextOfKin
+     * @param  \App\NextOfKin  $nok
      * @return \Illuminate\Http\Response
      */
-    public function destroy(NextOfKin $nextOfKin)
+    public function destroy(NextOfKin $nok)
     {
-        //
+        dd('delete nok here', $nok);
     }
 }
