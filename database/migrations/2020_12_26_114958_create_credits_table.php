@@ -19,6 +19,7 @@ class CreateCreditsTable extends Migration
             $table->dateTime('due_date')->default(now());
             $table->decimal('amount_due', 15, 2);
             $table->boolean('cleared')->default(false);
+            $table->dateTime('cleared_on')->default(now());
             $table->unsignedBigInteger('created_by');
             $table->timestamps();
 
