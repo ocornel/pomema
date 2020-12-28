@@ -21,7 +21,7 @@ $factory->define(NextOfKin::class, function (Faker $faker) {
     return [
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
-        'other_names' => $faker->name,
+        'other_names' => $faker->lastName,
         'id_number' =>$faker->unique()->numberBetween(1000000,39999999),
         'dob'=> $faker->dateTimeBetween('-50 years'),
         'residence' => $faker->city,

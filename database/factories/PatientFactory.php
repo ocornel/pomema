@@ -23,7 +23,7 @@ $factory->define(Patient::class, function (Faker $faker) {
         'pc_number' =>$faker->unique()->numberBetween(1,1000000),
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
-        'other_names' => $faker->name,
+        'other_names' => $faker->lastName,
         'sex' =>$patient_gender[array_rand($patient_gender)],
         'dob'=> $faker->dateTimeBetween('-50 years'),
         'residence' => $faker->city,
