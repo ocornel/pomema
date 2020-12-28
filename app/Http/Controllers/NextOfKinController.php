@@ -7,15 +7,24 @@ use Illuminate\Http\Request;
 
 class NextOfKinController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function index()
     {
-        //
-    }
+        $noks = NextOfKin::all();
+        $context = [
+            'noks'=> $noks
+        ];
+        return view('nok.index', $context);    }
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +33,7 @@ class NextOfKinController extends Controller
      */
     public function create()
     {
-        //
+        dd("create nok here");
     }
 
     /**
@@ -35,18 +44,21 @@ class NextOfKinController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd('store nok here', $request);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\NextOfKin  $nextOfKin
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function show(NextOfKin $nextOfKin)
     {
-        //
+        $context = [
+            'nok' => $nextOfKin
+        ];
+        return view('nok.show', $context);
     }
 
     /**
@@ -57,7 +69,7 @@ class NextOfKinController extends Controller
      */
     public function edit(NextOfKin $nextOfKin)
     {
-        //
+        dd('edit nok here', $nextOfKin);
     }
 
     /**
@@ -69,7 +81,7 @@ class NextOfKinController extends Controller
      */
     public function update(Request $request, NextOfKin $nextOfKin)
     {
-        //
+        dd('update nok here', $nextOfKin, $request);
     }
 
     /**
@@ -80,6 +92,6 @@ class NextOfKinController extends Controller
      */
     public function destroy(NextOfKin $nextOfKin)
     {
-        //
+        dd('delete nok here', $nextOfKin);
     }
 }

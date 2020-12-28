@@ -37,7 +37,14 @@ Route::get('/edit_credit/{credit}/', 'CreditController@edit')->name('edit_credit
 Route::post('/update_credit/{credit}', 'CreditController@update')->name('update_credit');
 Route::get('/delete_credit/{credit}', 'CreditController@destroy')->name('delete_credit');
 
+//NEXT OF KINS
+Route::get('/noks', 'NextOfKinController@index')->name('noks');
+Route::get('/create_nok', 'NextOfKinController@create')->name('create_nok');
+Route::post('/store_nok', 'NextOfKinController@store')->name('store_nok');
+Route::get('/show_nok/{nok}/', 'NextOfKinController@show')->name('show_nok');
+Route::get('/edit_nok/{nok}/', 'NextOfKinController@edit')->name('edit_nok');
+Route::post('/update_nok/{nok}', 'NextOfKinController@update')->name('update_nok');
+Route::get('/delete_nok/{nok}', 'NextOfKinController@destroy')->name('delete_nok');
 
 
-Route::get('/credits', 'CreditCOntroller@index')->name('credits');
 //Route::get('/reports', 'HomeController@index')->name('reports');
