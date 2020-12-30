@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9144846b-7a47-4a04-b3fd-2efcdc25e510" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/patient/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PatientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PatientController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Patient.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Patient.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/PatientNok.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PatientNok.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/PatientNokFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/PatientNokFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_26_115013_create_patient_noks_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_26_115013_create_patient_noks_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/patient/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/patient/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,10 +163,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="440" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1609008394860" />
-    <state x="578" y="298" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1609310100080">
+    <state x="578" y="298" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1609311307697">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="578" y="298" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1609310100080" />
+    <state x="578" y="298" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1609311307697" />
     <state x="645" y="305" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0" timestamp="1609177873761">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -189,9 +183,9 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="467" y="153" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1609008774486" />
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1609310543988">
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1609311797852">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1609310543988" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1609311797852" />
   </component>
 </project>

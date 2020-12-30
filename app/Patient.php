@@ -36,4 +36,21 @@ class Patient extends Model
 
     }
 
+    public function getNoksAttribute() {
+//        return Patient::whereIn('id', PatientNok::where('nok_id', $this->id)->pluck('patient_id'))->get();
+        return NextOfKin::whereIn('id', PatientNok::where('patient_id', $this->id)->pluck('nok_id'))->get();
+    }
+
+    public function getPrimaryNokAttribute() {
+        return NextOfKin::whereIn('id',
+            PatientNok::where('patient_id', $this->id)->where('is_primary', true)
+                ->pluck('nok_id'))->first();
+    }
+
+    public function getPNokIdAttribute() {
+        if($pnok = $this->primary_nok) {
+            return $pnok->id_number;
+        }
+    }
+
 }
