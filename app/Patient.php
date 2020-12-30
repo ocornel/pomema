@@ -16,6 +16,12 @@ class Patient extends Model
         self::SEX_OTHER => "Other"
     ];
 
+    const SEX_VALUES = [
+        self::SEX_MALE,
+        self::SEX_FEMALE,
+        self::SEX_OTHER
+    ];
+
     const SEX_MALE = 'M';
     const SEX_FEMALE = 'F';
     const SEX_OTHER = 'O';
@@ -28,6 +34,23 @@ class Patient extends Model
     public function getAgeAttribute() {
         return Carbon::parse($this->dob)->diff(Carbon::now())->format('%yY %mM %dD');
 
+    }
+
+    public function getNoksAttribute() {
+//        return Patient::whereIn('id', PatientNok::where('nok_id', $this->id)->pluck('patient_id'))->get();
+        return NextOfKin::whereIn('id', PatientNok::where('patient_id', $this->id)->pluck('nok_id'))->get();
+    }
+
+    public function getPrimaryNokAttribute() {
+        return NextOfKin::whereIn('id',
+            PatientNok::where('patient_id', $this->id)->where('is_primary', true)
+                ->pluck('nok_id'))->first();
+    }
+
+    public function getPNokIdAttribute() {
+        if($pnok = $this->primary_nok) {
+            return $pnok->id_number;
+        }
     }
 
 }
