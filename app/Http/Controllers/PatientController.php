@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\NextOfKin;
 use App\Patient;
+use App\PatientNok;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class PatientController extends Controller
 {
@@ -30,22 +33,38 @@ class PatientController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function create()
     {
-        dd("create patient here");
+        return view('patient.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
-        dd('store patient here', $request);
+        $request['dob'] = date_create($request['dob']);
+        $nok_id = $request['p_nok_id'];
+        $patient = Patient::create($request->all());
+        $nok = NextOfKin::where('id_number',$nok_id)->first();
+        if ($nok) {
+            PatientNok::create([
+                'patient_id'=>$patient->id,
+                'nok_id' => $nok->id,
+                'created_by' => $patient->created_by,
+                'is_primary' => true
+            ]);
+            Session::flash('success', 'Post created');
+            return redirect(route('patients'));
+        }
+        else
+//            redirect to creating nok with this id number
+        dd('Patient Stored, redirect to create NOK with id number '. $nok_id, $patient);
     }
 
     /**

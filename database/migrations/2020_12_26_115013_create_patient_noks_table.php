@@ -18,6 +18,7 @@ class CreatePatientNoksTable extends Migration
             $table->unsignedBigInteger('patient_id');
             $table->unsignedBigInteger('nok_id');
             $table->unsignedBigInteger('created_by');
+            $table->boolean('is_primary');
             $table->timestamps();
 
             $table->foreign('patient_id')->references('id')->on('patients');
