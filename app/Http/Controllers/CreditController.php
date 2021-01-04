@@ -7,14 +7,23 @@ use Illuminate\Http\Request;
 
 class CreditController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function index()
     {
-        //
+        $credits = Credit::all();
+        $context = [
+            'credits'=> $credits
+        ];
+        return view('credit.index', $context);
     }
 
     /**
@@ -24,7 +33,7 @@ class CreditController extends Controller
      */
     public function create()
     {
-        //
+        dd("create credit here");
     }
 
     /**
@@ -35,7 +44,7 @@ class CreditController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd('store credit here', $request);
     }
 
     /**
@@ -46,7 +55,10 @@ class CreditController extends Controller
      */
     public function show(Credit $credit)
     {
-        //
+        $context = [
+            'credit' => $credit
+        ];
+        return view('credit.show', $context);
     }
 
     /**
@@ -57,7 +69,7 @@ class CreditController extends Controller
      */
     public function edit(Credit $credit)
     {
-        //
+        dd('edit credit here', $credit);
     }
 
     /**
@@ -69,7 +81,7 @@ class CreditController extends Controller
      */
     public function update(Request $request, Credit $credit)
     {
-        //
+        dd('update credit here', $credit, $request);
     }
 
     /**
@@ -80,6 +92,6 @@ class CreditController extends Controller
      */
     public function destroy(Credit $credit)
     {
-        //
+        dd('delete credit here', $credit);
     }
 }
