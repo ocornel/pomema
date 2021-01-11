@@ -50,13 +50,13 @@ class NextOfKinController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\NextOfKin  $nextOfKin
+     * @param  \App\NextOfKin  $nok
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
-    public function show(NextOfKin $nextOfKin)
+    public function show(NextOfKin $nok)
     {
         $context = [
-            'nok' => $nextOfKin
+            'nok' => $nok
         ];
         return view('nok.show', $context);
     }
@@ -64,34 +64,34 @@ class NextOfKinController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\NextOfKin  $nextOfKin
+     * @param  \App\NextOfKin  $nok
      * @return \Illuminate\Http\Response
      */
-    public function edit(NextOfKin $nextOfKin)
+    public function edit(NextOfKin $nok)
     {
-        dd('edit nok here', $nextOfKin);
+        dd('edit nok here', $nok);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\NextOfKin  $nextOfKin
+     * @param  \App\NextOfKin  $nok
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, NextOfKin $nextOfKin)
+    public function update(Request $request, NextOfKin $nok)
     {
-        dd('update nok here', $nextOfKin, $request);
+        dd('update nok here', $nok, $request);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\NextOfKin  $nextOfKin
+     * @param  \App\NextOfKin  $nok
      * @return \Illuminate\Http\Response
      */
-    public function destroy(NextOfKin $nextOfKin)
+    public function destroy(NextOfKin $nok)
     {
-        dd('delete nok here', $nextOfKin);
+        dd('delete nok here', $nok);
     }
 }

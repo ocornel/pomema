@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 class Patient extends Model
 {
-    protected $fillable = ['pc_number', 'first_name', 'last_name', 'other_names', 'sex', 'dob', 'residence', 'phone', 'created_by'];
+    protected $fillable = ['pc_number', 'first_name', 'last_name', 'other_names', 'sex', 'dob', 'residence', 'phone', 'created_by', 'cleared_by'];
 
     const GENDERS = [
         self::SEX_MALE => "Male",

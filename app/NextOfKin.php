@@ -19,8 +19,8 @@ class NextOfKin extends Model
     }
 
     public function getPatientsAttribute() {
-        dd(PatientNok::where('nok_id', $this->id)->pluck('patient_id'));
-        return Patient::whereIdIn(PatientNok::where('nok_id', $this->id)->pluck('patient_id'));
+//        dd(PatientNok::where('nok_id', $this->id)->pluck('patient_id'));
+        return Patient::whereIn('id', PatientNok::where('nok_id', $this->id)->pluck('patient_id'))->get();
     }
 
     public function getPatientsCountAttribute() {

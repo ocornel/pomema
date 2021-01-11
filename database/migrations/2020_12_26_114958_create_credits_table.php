@@ -21,10 +21,12 @@ class CreateCreditsTable extends Migration
             $table->boolean('cleared')->default(false);
             $table->dateTime('cleared_on')->default(now());
             $table->unsignedBigInteger('created_by');
+            $table->unsignedBigInteger('cleared_by');
             $table->timestamps();
 
             $table->foreign('patient_id')->references('id')->on('patients');
             $table->foreign('created_by')->references('id')->on('users');
+            $table->foreign('cleared_by')->references('id')->on('users');
 
         });
     }
