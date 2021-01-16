@@ -7,6 +7,7 @@ use App\Patient;
 use App\PatientNok;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Auth;
 
 class PatientController extends Controller
 {
@@ -115,10 +116,10 @@ class PatientController extends Controller
                 'patient_id' => $patient->id,
                 'nok_id' => $nok->id],
                 [
-                    'created_by' => $patient->created_by,
+                    'created_by' => Auth::user()->id,
                     'is_primary' => true
                 ]);
-            Session::flash('success', 'Post created');
+            Session::flash('success', 'Patient created.');
             return redirect(route('show_patient', [$patient, $patient->last_name]));
         } else
 //            redirect to creating nok with this id number

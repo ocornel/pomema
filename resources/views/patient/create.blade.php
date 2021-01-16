@@ -17,8 +17,9 @@
                         <form method="post"
                               action="@isset($patient){{ route('update_patient', $patient) }}@else{{ route('store_patient') }}@endisset">
                             @csrf
-                            <input type="text" name="created_by" value="{{ Auth::user()->id }}" hidden>
-
+                            <input type="text" name="created_by"
+                                   @isset($patient) value="{{ $patient->created_by }}" @else value="{{ Auth::user()->id }}"
+                             @endisset hidden>
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
@@ -113,17 +114,12 @@
                                                value="{{ $patient->p_nok_id }}"
                                             @endisset>
                                     </div>
-
                                 </div>
                                 <div class="col-md-12">
                                     <button type="submit" class="btn btn-outline-success pull-right">Submit</button>
                                 </div>
-
-
                             </div>
-
                         </form>
-
                     </div>
                 </div>
             </div>
