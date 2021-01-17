@@ -18,6 +18,15 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+        .card-header {
+            font-size: 20px;
+        }
+        .underline {
+            border-bottom: solid #bbb 1px;
+        }
+    </style>
 </head>
 <body>
     <div id="app">

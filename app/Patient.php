@@ -53,4 +53,12 @@ class Patient extends Model
         }
     }
 
+    public function getCreditsAttribute() {
+        return Credit::wherePatientId($this->id)->get();
+    }
+
+    public function getCreditDueAttribute() {
+        return Credit::wherePatientId($this->id)->whereCleared(0)->sum('amount_due');
+    }
+
 }

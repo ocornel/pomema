@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Credit;
+use App\Patient;
 use Illuminate\Http\Request;
+use Auth;
 
 class CreditController extends Controller
 {
@@ -29,22 +31,34 @@ class CreditController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
-    public function create()
+    public function create(Patient $patient)
     {
-        dd("create credit here");
+        $context = [
+            'patient' =>$patient
+        ];
+        return view('credit.create', $context);
+
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
-        dd('store credit here', $request);
+        if($request['cleared'] == 1) {
+            $request['cleared_on'] = now();
+            $request['cleared_by'] = Auth::user()->id;
+        }
+        $request['due_date'] = date_create($request['due_date']);
+
+        $credit = Credit::create($request->all());
+        $patient = $credit->patient;
+        return redirect(route('show_patient', [$patient, $patient->last_name]));
     }
 
     /**
@@ -92,6 +106,6 @@ class CreditController extends Controller
      */
     public function destroy(Credit $credit)
     {
-        dd('delete credit here', $credit);
+        dd('delete credit here', $credit->attributesToArray());
     }
 }
