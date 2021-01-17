@@ -17,7 +17,7 @@
     </tr>
     </thead>
     <tbody>
-    @foreach($noks as $nok)
+    @forelse($noks as $nok)
     <tr>
         <td>{{$nok->id}}</td>
         <td><a href="{{ route('show_nok', [$nok, $nok->last_name]) }}">{{ $nok->full_name }}</a></td>
@@ -36,7 +36,9 @@
                     class="fa fa-trash"></i></a>
         </td>@endisset
     </tr>
-    @endforeach
+    @empty
+        <tr><td colspan="10">No records found</td></tr>
+    @endforelse
     </tbody>
 </table>
 @else

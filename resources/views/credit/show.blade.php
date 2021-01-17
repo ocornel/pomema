@@ -1,25 +1,19 @@
-@extends('layouts.app')
+@extends('layouts.backend')
 
-@section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ $credit->code }}</div>
+@section('page_content')
+    <div class="card">
+        <div class="card-header">{{ $credit->code }}</div>
 
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                            credit details
-                            <br>
-                        {{$credit}}
-                    </div>
+        <div class="card-body">
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
                 </div>
-            </div>
+            @endif
+
+            credit details
+            <br>
+            {{$credit}}
         </div>
     </div>
 @endsection

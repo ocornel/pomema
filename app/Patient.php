@@ -53,4 +53,8 @@ class Patient extends Model
         }
     }
 
+    public function getCreditsAttribute() {
+        return Credit::wherePatientId($this->id)->get();
+    }
+
 }

@@ -36,4 +36,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getCreationsAttribute()
+    {
+        $patients = Patient::whereCreatedBy($this->id)->get();
+        $credits = Credit::whereCreatedBy($this->id)->get();
+        $noks = NextOfKin::whereCreatedBy($this->id)->get();
+        return [
+            'patients' => $patients,
+            'credits' => $credits,
+            'noks' => $noks];
+    }
 }

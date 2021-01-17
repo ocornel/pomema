@@ -1,24 +1,18 @@
-@extends('layouts.app')
+@extends('layouts.backend')
 
-@section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Credits</div>
+@section('page_content')
+    <div class="card">
+        <div class="card-header">Credits</div>
 
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                            @component('components.table_credits', ['credits' => $credits, 'actions'=>true])
-                            @endcomponent
-                    </div>
+        <div class="card-body">
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
                 </div>
-            </div>
+            @endif
+
+            @component('components.table_credits', ['credits' => $credits, 'actions'=>true])
+            @endcomponent
         </div>
     </div>
 @endsection

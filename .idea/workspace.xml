@@ -1,17 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="9144846b-7a47-4a04-b3fd-2efcdc25e510" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Credit.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Credit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CreditController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CreditController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NextOfKinController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NextOfKinController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PatientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PatientController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Patient.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Patient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_26_114700_create_patients_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_26_114700_create_patients_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_26_114958_create_credits_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_26_114958_create_credits_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/table_credits.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/table_credits.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/table_noks.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/table_noks.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/table_patients.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/table_patients.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/credit/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/credit/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/credit/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/credit/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/nok/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/nok/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/nok/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/nok/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/patient/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/patient/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/patient/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/patient/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/patient/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/patient/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -125,16 +150,17 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/credit" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/credit" />
+      <recent name="$PROJECT_DIR$/resources/views/components" />
+      <recent name="$PROJECT_DIR$/resources/views/user" />
       <recent name="$PROJECT_DIR$/public/img" />
       <recent name="$PROJECT_DIR$/resources/views" />
-      <recent name="$PROJECT_DIR$/resources/views/components" />
-      <recent name="$PROJECT_DIR$/resources/views/patient" />
     </key>
   </component>
   <component name="RunManager">
@@ -152,6 +178,8 @@
       <option name="presentableId" value="Default" />
       <updated>1608966110846</updated>
       <workItem from="1608966112402" duration="8148000" />
+      <workItem from="1610264080157" duration="699000" />
+      <workItem from="1610816310159" duration="14532000" />
     </task>
     <servers />
   </component>
@@ -159,33 +187,41 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="440" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609008394860">
+    <state x="440" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610825481306">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="440" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1609008394860" />
-    <state x="578" y="298" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1609311307697">
+    <state x="440" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610825481306" />
+    <state x="578" y="298" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1610875951864">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="578" y="298" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1609311307697" />
+    <state x="578" y="298" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610875951864" />
     <state x="645" y="305" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0" timestamp="1609177873761">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="645" y="305" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0/0.0.1680.1050@0.0.1680.1050" timestamp="1609177873761" />
-    <state x="660" y="466" key="NewPhpFileDialog" timestamp="1609307009744">
+    <state x="660" y="466" key="NewPhpFileDialog" timestamp="1610874580089">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="660" y="466" key="NewPhpFileDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1609307009744" />
+    <state x="660" y="466" key="NewPhpFileDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610874580089" />
+    <state width="574" height="445" key="SwitcherDM" timestamp="1610880808579">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="574" height="445" key="SwitcherDM/0.0.1680.1050@0.0.1680.1050" timestamp="1610880808579" />
+    <state x="692" y="442" key="VCS.ChangelistChooser" timestamp="1610877051571">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="692" y="442" key="VCS.ChangelistChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1610877051571" />
     <state x="718" y="367" width="342" height="343" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1609008130285">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="718" y="367" width="342" height="343" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1680.1050@0.0.1680.1050" timestamp="1609008130285" />
-    <state x="467" y="153" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1609008774486">
+    <state x="467" y="153" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1610819140287">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="467" y="153" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1609008774486" />
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1609311797852">
+    <state x="467" y="153" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1610819140287" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1610880790699">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1609311797852" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1610880790699" />
   </component>
 </project>

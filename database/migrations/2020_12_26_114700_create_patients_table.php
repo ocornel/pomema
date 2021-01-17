@@ -19,7 +19,7 @@ class CreatePatientsTable extends Migration
             $table->string('pc_number');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('other_names');
+            $table->string('other_names')->nullable();
             $table->enum('sex', [Patient::SEX_MALE, Patient::SEX_FEMALE, Patient::SEX_OTHER])->default(Patient::SEX_FEMALE);
             $table->dateTime('dob')->default(now());
             $table->string('residence');

@@ -17,7 +17,7 @@
     </tr>
     </thead>
     <tbody>
-    @foreach($patients as $patient)
+    @forelse($patients as $patient)
     <tr>
         <td>{{$patient->id}}</td>
         <td><a href="{{ route('show_patient', [$patient, $patient->last_name]) }}">{{ $patient->full_name }}</a></td>
@@ -36,7 +36,9 @@
                     class="fa fa-trash"></i></a>
         </td>@endisset
     </tr>
-    @endforeach
+    @empty
+        <tr><td colspan="10">No records found</td></tr>
+    @endforelse
     </tbody>
 </table>
 @else
