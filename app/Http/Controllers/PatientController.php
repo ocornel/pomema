@@ -52,6 +52,7 @@ class PatientController extends Controller
         $request['dob'] = date_create($request['dob']);
         $nok_id = $request['p_nok_id'];
         $patient = Patient::create($request->all());
+        Session::flash('success', 'Patient created');
         $nok = NextOfKin::where('id_number', $nok_id)->first();
         if ($nok) {
             PatientNok::create([
@@ -60,11 +61,15 @@ class PatientController extends Controller
                 'created_by' => $patient->created_by,
                 'is_primary' => true
             ]);
-            Session::flash('success', 'Post created');
             return redirect(route('patients'));
         } else
 //            redirect to creating nok with this id number
-            dd('Patient Stored, redirect to create NOK with id number ' . $nok_id, $patient);
+            $nok_context = [
+                'patient' => $patient,
+                'nok_id' => $nok_id,
+                'is_primary'=>true
+            ];
+        return redirect(route('create_nok', $nok_context));
     }
 
     /**
@@ -123,7 +128,12 @@ class PatientController extends Controller
             return redirect(route('show_patient', [$patient, $patient->last_name]));
         } else
 //            redirect to creating nok with this id number
-            dd('Patient Updated, redirect to create NOK with id number ' . $nok_id, $patient);
+            $nok_context = [
+                'patient' => $patient,
+                'nok_id' => $nok_id,
+                'is_primary'=>true
+            ];
+        return redirect(route('create_nok', $nok_context));
     }
 
     /**
@@ -137,7 +147,8 @@ class PatientController extends Controller
         dd('delete patient here', $patient->attributesToArray());
     }
 
-    public function associate_nok(Patient $patient) {
+    public function associate_nok(Patient $patient)
+    {
         dd('Associate Patient to existing or new Contact Person', $patient->attributesToArray());
     }
 }

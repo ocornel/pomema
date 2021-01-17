@@ -4,6 +4,7 @@ use App\Credit;
 use App\NextOfKin;
 use App\Patient;
 use App\PatientNok;
+use App\User;
 use Illuminate\Database\Seeder;
 
 class DummyDataSeeder extends Seeder
@@ -20,24 +21,24 @@ class DummyDataSeeder extends Seeder
         # ROLES
 
 //        # USERS
-//        if ($this->command) $this->command->info('Creating Dummy Users');
-//        factory(User::class, 100)->create();
+        if ($this->command) $this->command->info('Creating Dummy Users');
+        factory(User::class, 5)->create();
 
         # PATIENTS
         if ($this->command) $this->command->info('Creating Dummy Patients');
-        factory(Patient::class, 200)->create();
+        factory(Patient::class, 10)->create();
 
         # NEXT OF KIN
         if ($this->command) $this->command->info('Creating Dummy Next of Kins');
-        factory(NextOfKin::class, 100)->create();
+        factory(NextOfKin::class, 5)->create();
 
         # PATIENT NEXT OF KIN
         if ($this->command) $this->command->info('Linking Patients to Next of Kins');
-        factory(PatientNok::class, 300)->create();
+        factory(PatientNok::class, 30)->create();
 
         # CREDITS
         if ($this->command) $this->command->info('Creating Dummy Credits');
-        factory(Credit::class, 300)->create();
+        factory(Credit::class, 50)->create();
 
 //        # RESOLVE STUFF
 //        if ($this->command) $this->command->info('Resolving Stuff');

@@ -1,5 +1,5 @@
 @isset($patients)
-<table class="table table-bordered table-striped table-hover dataTable">
+<table class="table table-striped table-hover dataTable">
     <thead>
     <tr>
         <th>PID</th>
@@ -11,6 +11,8 @@
         <th>PHONE</th>
         @isset($actions)
         <th>ACTIONS</th>
+            @elseif(isset($extractions))
+            <th>ACTIONS</th>
         @endisset
     </tr>
     </thead>
@@ -30,7 +32,11 @@
                class="btn-sm btn-secondary"><i class="fa fa-edit"></i></a>
             <a href="{{ route('delete_patient', [$patient]) }}" title="Delete" class="btn-sm btn-danger"><i
                     class="fa fa-trash"></i></a>
-        </td>@endisset
+        </td>@elseif(isset($extractions))
+            <td>
+                <a href="" title="Disassociate" class="btn btn-secondary"><i class="fa fa-times"></i></a>
+            </td>
+        @endisset
     </tr>
     @empty
         <tr><td colspan="10">No records found</td></tr>
