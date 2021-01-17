@@ -7,10 +7,8 @@
         <th>PC NO</th>
         <th>SEX</th>
         <th>AGE</th>
-        <th>DOB</th>
-        <th>RESIDENCE</th>
+        <th>DUE CREDITS</th>
         <th>PHONE</th>
-        <th>REGISTERED</th>
         @isset($actions)
         <th>ACTIONS</th>
         @endisset
@@ -24,10 +22,8 @@
         <td>{{ $patient->pc_number }}</td>
         <td>{{ \App\Patient::GENDERS[$patient->sex] }}</td>
         <td>{{ $patient->age }}</td>
-        <td>{{ \Carbon\Carbon::parse($patient->dob)->format('Y M d') }}</td>
-        <td>{{ $patient->residence }}</td>
+        <td align="right">{{ number_format($patient->credit_due, 2) }}</td>
         <td>{{ $patient->phone }}</td>
-        <td>{{ \Carbon\Carbon::parse($patient->created_at)->format('Y M d') }}</td>
         @isset($actions)
         <td>
             <a href="{{ route('edit_patient', [$patient, $patient->last_name]) }}" title="Edit"
