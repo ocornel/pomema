@@ -1,0 +1,14 @@
+
+:root {
+    --5c-default-font-size: 14px;
+    --5c-blue: #56C8F3;
+    --5c-dark-blue: #0D325B;
+    --5c-dark-grey: #111111;
+    --5c-light-grey: #434343;
+    --5c-faint-grey: #EEEEEE;
+    --5c-danger-red: #EE1122;
+    --h: 50;
+}
+* {
+    font-size: var(--5c-default-font-size);
+}

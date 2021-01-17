@@ -5,7 +5,7 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-class NextOfKin extends Model
+class NextOfKin extends BaseModel
 {
     protected $fillable = ['first_name', 'last_name', 'other_names', 'id_number', 'dob', 'residence', 'work_place', 'phone', 'created_by'];
 
@@ -25,5 +25,13 @@ class NextOfKin extends Model
 
     public function getPatientsCountAttribute() {
         return count($this->getPatientsAttribute());
+    }
+
+    public function getCreditDueAttribute() {
+        $total = 0;
+        foreach ($this->patients as $patient){
+            $total += $patient->credit_due;
+        }
+        return $total;
     }
 }
