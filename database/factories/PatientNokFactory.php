@@ -41,6 +41,7 @@ $factory->define(PatientNok::class, function (Faker $faker) {
         'patient_id' =>$patient_ids[array_rand($patient_ids)],
         'nok_id' =>$nok_ids[array_rand($nok_ids)],
         'created_by' =>$user_ids[array_rand($user_ids)],
+        'is_primary' => $faker->boolean,
         'created_at'=> $faker->dateTimeBetween('-5 months'),
         'updated_at'=> now()
     ];

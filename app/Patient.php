@@ -16,6 +16,12 @@ class Patient extends Model
         self::SEX_OTHER => "Other"
     ];
 
+    const SEX_VALUES = [
+        self::SEX_MALE,
+        self::SEX_FEMALE,
+        self::SEX_OTHER
+    ];
+
     const SEX_MALE = 'M';
     const SEX_FEMALE = 'F';
     const SEX_OTHER = 'O';

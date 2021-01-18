@@ -5,7 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Patients</div>
+                    <div class="card-header">Patients
+                        <a style="float: right" href="{{ route('create_patient') }}">Add Patient</a>
+                    </div>
 
                     <div class="card-body">
                         @if (session('status'))
