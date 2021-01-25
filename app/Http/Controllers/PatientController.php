@@ -134,6 +134,10 @@ class PatientController extends Controller
      */
     public function destroy(Patient $patient)
     {
-        dd('delete patient here', $patient);
+        dd('delete patient here', $patient->attributesToArray());
+    }
+
+    public function associate_nok(Patient $patient) {
+        dd('Associate Patient to existing or new Contact Person', $patient->attributesToArray());
     }
 }

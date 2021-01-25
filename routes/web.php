@@ -19,6 +19,16 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//USERS
+Route::get('/users', 'UserController@index')->name('users');
+Route::get('/create_user', 'UserController@create')->name('create_user');
+Route::post('/store_user', 'UserController@store')->name('store_user');
+Route::get('/show_user/{user}/{last_name?}', 'UserController@show')->name('show_user');
+Route::get('/edit_user/{user}/{last_name?}', 'UserController@edit')->name('edit_user');
+Route::post('/update_user/{user}', 'UserController@update')->name('update_user');
+Route::get('/delete_user/{user}', 'UserController@destroy')->name('delete_user');
+
+
 //PATIENT
 Route::get('/patients', 'PatientController@index')->name('patients');
 Route::get('/create_patient', 'PatientController@create')->name('create_patient');
@@ -27,15 +37,16 @@ Route::get('/show_patient/{patient}/{last_name?}', 'PatientController@show')->na
 Route::get('/edit_patient/{patient}/{last_name?}', 'PatientController@edit')->name('edit_patient');
 Route::post('/update_patient/{patient}', 'PatientController@update')->name('update_patient');
 Route::get('/delete_patient/{patient}', 'PatientController@destroy')->name('delete_patient');
+Route::get('/associate_nok/{patient}/{last_name?}', 'PatientController@associate_nok')->name('associate_nok');
 
 //CREDIT
 Route::get('/credits', 'CreditController@index')->name('credits');
-Route::get('/create_credit', 'CreditController@create')->name('create_credit');
+Route::get('/create_credit/{patient}/{last_name?}', 'CreditController@create')->name('create_credit');
 Route::post('/store_credit', 'CreditController@store')->name('store_credit');
-Route::get('/show_credit/{credit}/', 'CreditController@show')->name('show_credit');
-Route::get('/edit_credit/{credit}/', 'CreditController@edit')->name('edit_credit');
+Route::get('/show_credit/{credit}/{code?}/', 'CreditController@show')->name('show_credit');
+Route::get('/edit_credit/{credit}/{code?}/', 'CreditController@edit')->name('edit_credit');
 Route::post('/update_credit/{credit}', 'CreditController@update')->name('update_credit');
-Route::get('/delete_credit/{credit}', 'CreditController@destroy')->name('delete_credit');
+Route::get('/delete_credit/{credit}/{code?}', 'CreditController@destroy')->name('delete_credit');
 
 //NEXT OF KINS
 Route::get('/noks', 'NextOfKinController@index')->name('noks');

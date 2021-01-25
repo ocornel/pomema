@@ -19,9 +19,9 @@ class CreateCreditsTable extends Migration
             $table->dateTime('due_date')->default(now());
             $table->decimal('amount_due', 15, 2);
             $table->boolean('cleared')->default(false);
-            $table->dateTime('cleared_on')->default(now());
+            $table->dateTime('cleared_on')->nullable();
             $table->unsignedBigInteger('created_by');
-            $table->unsignedBigInteger('cleared_by');
+            $table->unsignedBigInteger('cleared_by')->nullable();
             $table->timestamps();
 
             $table->foreign('patient_id')->references('id')->on('patients');

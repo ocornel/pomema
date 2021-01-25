@@ -69,7 +69,7 @@ class NextOfKinController extends Controller
      */
     public function edit(NextOfKin $nok)
     {
-        dd('edit nok here', $nok);
+        dd('edit nok here', $nok->attributesToArray());
     }
 
     /**
@@ -81,7 +81,7 @@ class NextOfKinController extends Controller
      */
     public function update(Request $request, NextOfKin $nok)
     {
-        dd('update nok here', $nok, $request);
+        dd('update nok here', $nok->attributesToArray(), $request);
     }
 
     /**
@@ -92,6 +92,6 @@ class NextOfKinController extends Controller
      */
     public function destroy(NextOfKin $nok)
     {
-        dd('delete nok here', $nok);
+        dd('delete nok here', $nok->attributesToArray());
     }
 }

@@ -2,7 +2,9 @@
 
 @section('page_content')
     <div class="card">
-        <div class="card-header">{{ $nok->full_name }}</div>
+        <div class="card-header">Users
+            <a style="float: right" href="{{ route('create_user') }}">Add User</a>
+        </div>
 
         <div class="card-body">
             @if (session('status'))
@@ -11,9 +13,8 @@
                 </div>
             @endif
 
-            Next of Kin details
-            <br>
-            {{$nok}}
+            @component('components.table_users', ['users' => $users, 'actions'=>true])
+            @endcomponent
         </div>
     </div>
 @endsection
