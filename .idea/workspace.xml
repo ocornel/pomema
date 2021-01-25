@@ -6,30 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9144846b-7a47-4a04-b3fd-2efcdc25e510" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Credit.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Credit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CreditController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CreditController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NextOfKinController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NextOfKinController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PatientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PatientController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Patient.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Patient.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_26_114700_create_patients_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_26_114700_create_patients_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_26_114958_create_credits_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_26_114958_create_credits_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/table_credits.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/table_credits.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/table_noks.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/table_noks.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/table_patients.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/table_patients.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/credit/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/credit/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/credit/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/credit/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/nok/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/nok/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/nok/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/nok/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/patient/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/patient/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/patient/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/patient/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/patient/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/patient/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +157,7 @@
       <updated>1608966110846</updated>
       <workItem from="1608966112402" duration="8148000" />
       <workItem from="1610264080157" duration="699000" />
-      <workItem from="1610816310159" duration="14532000" />
+      <workItem from="1610816310159" duration="15160000" />
     </task>
     <servers />
   </component>
@@ -219,9 +197,9 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="467" y="153" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1610819140287" />
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1610880790699">
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1610881409911">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1610880790699" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1610881409911" />
   </component>
 </project>

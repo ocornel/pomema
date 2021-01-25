@@ -19,7 +19,7 @@
     <tr>
         <td><a href="{{ route('show_credit', [$credit, $credit->code]) }}">{{ $credit->code }}</a></td>
         <td><a href="{{ route('show_patient', [$credit->patient_id, $credit->patient->last_name]) }}">{{ $credit->patient->full_name }}</a></td>
-        <td>{{ number_format($credit->amount_due,2) }}</td>
+        <td align="right">{{ number_format($credit->amount_due,2) }}</td>
         <td>{{ \Carbon\Carbon::parse($credit->created_at)->format('Y M d') }}</td>
         <td>{{ \Carbon\Carbon::parse($credit->due_date)->format('Y M d') }}</td>
         <td>{{ $credit->status_text }}</td>
