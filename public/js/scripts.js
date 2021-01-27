@@ -20,7 +20,11 @@
 
 $("input[required]").parent().addClass("required");
 
-$(".dataTable").dataTable();
+$(document).ready(function () {
+    $('.dataTable').DataTable();
+})
+
+$(".dataTable").DataTable();
 
 // lazy load images
 const config = {
