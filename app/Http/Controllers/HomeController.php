@@ -49,7 +49,7 @@ class HomeController extends Controller
 
     public function load_widget(Request $request)
     {
-        dd($request->all());
+        dd($request);
         switch ($item_title = $request->item_title) {
             case self::WIDGET_OUTSTANDING:
                 $values = $this->DashboardTotalOutstanding();
