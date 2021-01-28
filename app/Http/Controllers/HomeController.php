@@ -15,7 +15,7 @@ class HomeController extends Controller
 {
     /**
      * Create a new controller instance.
-     *
+     *Ensure logged in.
      * @return void
      */
     public function __construct()
