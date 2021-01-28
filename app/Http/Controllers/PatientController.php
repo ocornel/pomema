@@ -7,6 +7,7 @@ use App\Patient;
 use App\PatientNok;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\HomeController as HC;
 use Auth;
 
 class PatientController extends Controller
@@ -22,10 +23,24 @@ class PatientController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
-    public function index()
+    public function index($age_filter=null)
     {
-        $patients = Patient::all();
+        switch ($age_filter) {
+            case HC::WIDGET_O5:
+                $patients = Patient::all()->filter(function ($patient)  {
+                    return $patient->years >= 5;
+                    })->values();;
+                break;
+            case HC::WIDGET_U5:
+                $patients = Patient::all()->filter(function ($patient)  {
+                    return $patient->years < 5;
+                })->values();;
+                break;
+            default:
+                $patients = Patient::all();
+        }
         $context = [
+            'age_filter' =>$age_filter,
             'patients' => $patients
         ];
         return view('patient.index', $context);

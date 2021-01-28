@@ -2,7 +2,7 @@
 
 @section('page_content')
     <div class="card">
-        <div class="card-header">Credits</div>
+        <div class="card-header">{{$status_filter}} Credits</div>
 
         <div class="card-body">
             @if (session('status'))

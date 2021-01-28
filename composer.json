@@ -13,7 +13,8 @@
         "laravel/framework": "5.8.*",
         "barryvdh/laravel-dompdf": "^0.8.3",
         "maatwebsite/excel": "^3.1",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+      "ext-json": "*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
