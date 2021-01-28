@@ -109,6 +109,7 @@ class HomeController extends Controller
                 ];
                 return UC::template_code($request_content);
             default:
+                dd($item_title);
                 return ['content' => 'Unknown widget'];
         }
     }
