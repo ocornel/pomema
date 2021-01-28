@@ -38,6 +38,10 @@ class Patient extends BaseModel
 
     }
 
+    public function getYearsAttribute() {
+        return intval(Carbon::parse($this->dob)->diff(Carbon::now())->format("%y"));
+    }
+
     public function getNoksAttribute() {
 //        return Patient::whereIn('id', PatientNok::where('nok_id', $this->id)->pluck('patient_id'))->get();
         return NextOfKin::whereIn('id', PatientNok::where('patient_id', $this->id)->pluck('nok_id'))->get();

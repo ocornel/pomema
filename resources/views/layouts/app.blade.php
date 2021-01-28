@@ -10,6 +10,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+    <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -91,8 +93,9 @@
         </main>
     </div>
 
-    <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
-{{--    <script src="{{ asset('packages/js/dataTables.bootstrap.min.js') }}"></script>--}}
+{{--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>--}}
+{{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxy/1.6.1/scripts/jquery.ajaxy.min.js"></script>--}}
+    <script src="{{ asset('packages/js/dataTables.bootstrap.min.js') }}"></script>
     <script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
 
     <script src="{{ asset('js/scripts.js') }}"></script>

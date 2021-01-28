@@ -74,7 +74,7 @@
                         Total: {{number_format($patient->credit_total,2)}})</h4></div>
                 <div class="col-md-4">
                     <a style="float: right; margin: 1px 5px" class="btn btn-primary"
-                       title="Download credit report for {{$patient->first_name}}"
+                       title="Download credit report for {{$patient->first_name}}" target="_blank"
                        href="{{ route('patient_credit_report', [$patient,'PDF', $patient->last_name]) }}"><i
                             class="fa fa-download"></i> PDF</a>
                     <a style="float: right; margin: 1px 5px" class="btn btn-primary"
