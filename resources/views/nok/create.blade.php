@@ -17,11 +17,8 @@
                 <input type="text" name="created_by"
                        @isset($nok) value="{{ $nok->created_by }}" @else value="{{ Auth::user()->id }}"
                        @endisset hidden>
-                <input type="text" name="is_primary"
-                       value = '{{$is_primary}}' hidden>
-                @isset($patient)
-                    <input type="text" name="patient_id" value="{{ $patient->id }}" hidden>
-                @endisset
+                @isset($is_primary) <input type="text" name="is_primary" value = '{{$is_primary}}' hidden> @endisset
+                @isset($patient) <input type="text" name="patient_id" value="{{ $patient->id }}" hidden> @endisset
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
@@ -89,11 +86,7 @@
                         <div class="form-group" data-toggle="match-height">
                             <label for="dob" class="control-label">Date of Birth</label>
                             <div class="input-with-icon">
-                                <input class="form-control" type="text" name="dob"
-                                       id="dob" data-provide="datepicker"
-                                       data-date-today-highlight="true"
-                                       value=" @isset($nok){{ \Carbon\Carbon::parse($nok->dob)->format('m/d/Y') }} @else
-                                       {{ \Carbon\Carbon::parse(now())->format('m/d/Y') }} @endisset ">
+                                <input class="form-control" type="text" name="dob" id="dob" data-provide="datepicker" data-date-today-highlight="true" value="@isset($nok){{ \Carbon\Carbon::parse($nok->dob)->format('m/d/Y') }} @else {{ \Carbon\Carbon::parse(now())->format('m/d/Y') }} @endisset">
                                 <span class="icon icon-calendar input-icon"></span>
                             </div>
                         </div>

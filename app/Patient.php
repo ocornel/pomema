@@ -79,4 +79,8 @@ class Patient extends BaseModel
         return self::GENDERS[$this->sex];
     }
 
+    public function getUidAttribute() {
+        return $this->pc_number;
+    }
+
 }

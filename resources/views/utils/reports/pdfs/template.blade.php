@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
+
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>PONACARE | @yield('report_name') </title>
     <style>
@@ -29,11 +30,12 @@
 
         .report-title {
             float: left;
-            font-size: 1.3em;
+            font-size: 1.7em;
             font-weight: 100;
             font-family: sans-serif;
             text-align: center;
             width: 100%;
+            text-transform: uppercase;
         }
 
         .right {
@@ -125,15 +127,13 @@
 
     <div style="width: 100%; clear: both;">
         <hr style="width: 100%;height: 1px; border-bottom: #A3A3A3 0.5px solid; border-top: none; border-left: none; border-right: none">
-
         <p class="report-title">@yield('report_name')</p>
-
-        <br>
     </div>
 
     <div style="width: 100%; clear: both;">
+        @yield('report_header')
     </div>
-
+    <hr style="width: 100%;height: 1px; border-bottom: #A3A3A3 0.5px solid; border-top: none; border-left: none; border-right: none">
 </div>
 
 <table class="summary-table">

@@ -34,4 +34,8 @@ class NextOfKin extends BaseModel
         }
         return $total;
     }
+
+    public function getUidAttribute() {
+        return $this->id_number;
+    }
 }

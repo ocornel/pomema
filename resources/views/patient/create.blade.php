@@ -61,7 +61,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="description" class="control-label">PC Number</label>
-                            <input type="text" class="form-control" id="pc_number"
+                            <input type="text" class="form-control" id="pc_number" required
                                    name="pc_number"
                                    @isset($patient)
                                    value="{{ $patient->pc_number }}"
@@ -82,11 +82,7 @@
                         <div class="form-group" data-toggle="match-height">
                             <label for="dob" class="control-label">Date of Birth</label>
                             <div class="input-with-icon">
-                                <input class="form-control" type="text" name="dob"
-                                       id="dob" data-provide="datepicker"
-                                       data-date-today-highlight="true"
-                                       value=" @isset($patient){{ \Carbon\Carbon::parse($patient->dob)->format('m/d/Y') }} @else
-                                       {{ \Carbon\Carbon::parse(now())->format('m/d/Y') }} @endisset ">
+                                <input class="form-control" type="text" name="dob" id="dob" required data-provide="datepicker" data-date-today-highlight="true" value=" @isset($patient){{ \Carbon\Carbon::parse($patient->dob)->format('m/d/Y') }} @else {{ \Carbon\Carbon::parse(now())->format('m/d/Y') }} @endisset ">
                                 <span class="icon icon-calendar input-icon"></span>
                             </div>
                         </div>
@@ -94,7 +90,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="sex" class="control-label">Sex</label>
-                            <select name="sex" id="sex" class="form-control">
+                            <select name="sex" id="sex" class="form-control" required>
                                 @foreach(\App\Patient::SEX_VALUES as $sex)
                                     <option value="{{ $sex }}"
                                             @isset($patient) @if($patient->sex == $sex) selected @endif @endisset>{{ \App\Patient::GENDERS[$sex] }}</option>
@@ -105,11 +101,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="description" class="control-label">Primary NOK ID number</label>
-                            <input type="text" class="form-control" id="p_nok_id"
-                                   name="p_nok_id"
-                                   @isset($patient)
-                                   value="{{ $patient->p_nok_id }}"
-                                @endisset>
+                            <input type="text" class="form-control" id="p_nok_id" name="p_nok_id" @isset($patient) value="{{ $patient->p_nok_id }}" @endisset>
                         </div>
                     </div>
                     <div class="col-md-12">
