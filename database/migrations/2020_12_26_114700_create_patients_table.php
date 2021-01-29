@@ -22,7 +22,7 @@ class CreatePatientsTable extends Migration
             $table->string('other_names')->nullable();
             $table->enum('sex', [Patient::SEX_MALE, Patient::SEX_FEMALE, Patient::SEX_OTHER])->default(Patient::SEX_FEMALE);
             $table->dateTime('dob')->default(now());
-            $table->string('residence');
+            $table->string('residence')->nullable();
             $table->string('phone');
             $table->unsignedBigInteger('created_by');
             $table->timestamps();

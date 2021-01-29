@@ -3,7 +3,7 @@
 @section('page_content')
     <div class="card">
         <div class="card-header">Users
-            <a style="float: right" href="{{ route('create_user') }}">Add User</a>
+            <a style="float: right" href="{{ route('create_user') }}" class="btn btn-primary">Add User</a>
         </div>
 
         <div class="card-body">

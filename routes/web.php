@@ -57,6 +57,7 @@ Route::get('/edit_nok/{nok}/', 'NextOfKinController@edit')->name('edit_nok');
 Route::post('/update_nok/{nok}', 'NextOfKinController@update')->name('update_nok');
 Route::get('/delete_nok/{nok}', 'NextOfKinController@destroy')->name('delete_nok');
 Route::get('/associate_patient/{nok}/{last_name?}', 'NextOfKinController@associate_patient')->name('associate_patient');
+Route::get('/nok_patient_association', 'NextOfKinController@nok_patient_association')->name('nok_patient_association');
 
 //REPORTS
 Route::get('/patient_credit/{patient}/{format?}/}{last_name?}', 'ReportsController@patient_credit')->name('patient_credit_report');

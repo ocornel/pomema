@@ -17,11 +17,11 @@ class CreateNextOfKinTable extends Migration
             $table->bigIncrements('id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('other_names');
+            $table->string('other_names')->nullable();
             $table->string('id_number');
             $table->dateTime('dob')->default(now());
-            $table->string('residence');
-            $table->string('work_place');
+            $table->string('residence')->nullable();
+            $table->string('work_place')->nullable();
             $table->string('phone');
             $table->unsignedBigInteger('created_by');
             $table->timestamps();

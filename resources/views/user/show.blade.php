@@ -3,7 +3,7 @@
 @section('page_content')
     <div class="card">
         <div class="card-header">{{ $user->name }}
-            <a style="float: right" href="{{ route('edit_user', [$user, $user->name]) }}">Edit User</a></div>
+            <a style="float: right" href="{{ route('edit_user', [$user, $user->name]) }}" class="btn btn-primary">Edit User</a></div>
 
         <div class="card-body">
             @if (session('status'))
@@ -16,14 +16,14 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="row">
-                            <div class="col-md-6 font-weight-bold">Email:</div>
-                            <div class="col-md-6">{{ $user->email }}</div>
+                            <div class="col-md-4 font-weight-bold">Email:</div>
+                            <div class="col-md-8">{{ $user->email }}</div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="row">
-                            <div class="col-md-6 font-weight-bold">Created:</div>
-                            <div class="col-md-6"> {{ \Carbon\Carbon::parse($user->created_at)->format('Y M d') }}</div>
+                            <div class="col-md-4 font-weight-bold">Created:</div>
+                            <div class="col-md-8"> {{ \Carbon\Carbon::parse($user->created_at)->format('Y M d') }}</div>
                         </div>
                     </div>
                 </div>
