@@ -18,50 +18,65 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="row">
-                        <div class="col-md-6 font-weight-bold">PC Number:</div>
-                        <div class="col-md-6">{{ $patient->pc_number }}</div>
+                        <div class="col-md-5 font-weight-bold">PC Number:</div>
+                        <div class="col-md-7">{{ $patient->pc_number }}</div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="row">
-                        <div class="col-md-6 font-weight-bold">Sex:</div>
-                        <div class="col-md-6">{{ $patient->gender }}</div>
+                        <div class="col-md-5 font-weight-bold">Sex:</div>
+                        <div class="col-md-7">{{ $patient->gender }}</div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="row">
-                        <div class="col-md-6 font-weight-bold">Date of Birth:</div>
-                        <div class="col-md-6"> {{ \Carbon\Carbon::parse($patient->dob)->format('Y M d') }}</div>
+                        <div class="col-md-5 font-weight-bold">Date of Birth:</div>
+                        <div class="col-md-7"> {{ \Carbon\Carbon::parse($patient->dob)->format('Y M d') }}</div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="row">
-                        <div class="col-md-6 font-weight-bold">Age:</div>
-                        <div class="col-md-6">{{ $patient->age }}</div>
+                        <div class="col-md-5 font-weight-bold">Age:</div>
+                        <div class="col-md-7">{{ $patient->age }}</div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="row">
-                        <div class="col-md-6 font-weight-bold">Residence:</div>
-                        <div class="col-md-6">{{ $patient->residence }}</div>
+                        <div class="col-md-5 font-weight-bold">Residence:</div>
+                        <div class="col-md-7">{{ $patient->residence }}</div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="row">
-                        <div class="col-md-6 font-weight-bold">Phone Number:</div>
-                        <div class="col-md-6">{{ $patient->phone }}</div>
+                        <div class="col-md-5 font-weight-bold">Phone Number:</div>
+                        <div class="col-md-7">{{ $patient->phone }}</div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="row">
-                        <div class="col-md-6 font-weight-bold">Reg. Date:</div>
-                        <div class="col-md-6"> {{ \Carbon\Carbon::parse($patient->created_at)->format('Y M d') }}</div>
+                        <div class="col-md-5 font-weight-bold">Primary NOK:</div>
+                        <div class="col-md-7">
+                            @isset($patient->primary_nok)
+                                <?php $nok = $patient->primary_nok ?>
+                                <a
+                                    href="{{ route('show_nok', [$nok, $nok->last_name]) }}">{{ $nok->full_name }}</a>
+{{--                            {{ $patient->primary_nok->full_name }}--}}
+                            @else
+                                None <small>(Edit Patient put NOK ID)</small>
+                            @endisset
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="row">
-                        <div class="col-md-6 font-weight-bold">Registered By:</div>
-                        <div class="col-md-6"><a
+                        <div class="col-md-5 font-weight-bold">Reg. Date:</div>
+                        <div class="col-md-7"> {{ \Carbon\Carbon::parse($patient->created_at)->format('Y M d') }}</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-5 font-weight-bold">Registered By:</div>
+                        <div class="col-md-7"><a
                                 href="{{ route('show_user', $patient->creator) }}">{{ $patient->creator->name }}</a>
                         </div>
                     </div>

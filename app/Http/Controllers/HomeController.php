@@ -53,7 +53,7 @@ class HomeController extends Controller
             case self::WIDGET_OUTSTANDING:
                 $values = $this->DashboardTotalOutstanding();
                 $v1 = $values['outstanding'];
-                $v2 = $values['cleared'];
+                $v2 = number_format($values['cleared']);
                 $v3 = $values['percent_outstanding'];
                 $request_content = [
                     'template' => 'components.dashboard_widget',

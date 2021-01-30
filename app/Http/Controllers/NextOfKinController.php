@@ -133,7 +133,6 @@ class NextOfKinController extends Controller
     public function associate_patient(NextOfKin $nok)
     {
         $context = [
-            'noks'=>NextOfKin::all(),
             'nok'=>$nok
         ];
         return view('patient.associate_patient', $context);    }
