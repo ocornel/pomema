@@ -55,3 +55,23 @@ function linkText(input_string) {
     return input_string.replace(/ /g, '-').toLowerCase();
 }
 
+
+function Associate(origin = 'patient', origin_id = 0, other_id = 0) {
+    $.ajax({
+        type: "GET",
+        url: "/nok_patient_association",
+        data: {
+            'origin_id': origin_id,
+            'other_id': other_id,
+            'origin': origin
+        },
+        success: function (data) {
+            document.getElementById('associated').innerHTML = data.associated;
+            document.getElementById('other').innerHTML = data.other;
+        },
+        error: function () {
+            document.getElementById('associated').innerText = 'Error';
+            document.getElementById('other').innerText = 'Error';
+        }
+    });
+}
