@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\URL;
 use Carbon\Carbon;
 
-class Patient extends Model
+class Patient extends BaseModel
 {
     protected $fillable = ['pc_number', 'first_name', 'last_name', 'other_names', 'sex', 'dob', 'residence', 'phone', 'created_by', 'cleared_by'];
 
@@ -25,6 +25,8 @@ class Patient extends Model
     const SEX_MALE = 'M';
     const SEX_FEMALE = 'F';
     const SEX_OTHER = 'O';
+
+
 
     public function getFullNameAttribute()
     {
@@ -59,6 +61,18 @@ class Patient extends Model
 
     public function getCreditDueAttribute() {
         return Credit::wherePatientId($this->id)->whereCleared(0)->sum('amount_due');
+    }
+
+    public function getCreditClearedAttribute() {
+        return Credit::wherePatientId($this->id)->whereCleared(1)->sum('amount_due');
+    }
+
+    public function getCreditTotalAttribute() {
+        return Credit::wherePatientId($this->id)->sum('amount_due');
+    }
+
+    public function getGenderAttribute() {
+        return self::GENDERS[$this->sex];
     }
 
 }

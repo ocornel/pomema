@@ -50,12 +50,14 @@ Route::get('/delete_credit/{credit}/{code?}', 'CreditController@destroy')->name(
 
 //NEXT OF KINS
 Route::get('/noks', 'NextOfKinController@index')->name('noks');
-Route::get('/create_nok', 'NextOfKinController@create')->name('create_nok');
+Route::get('/create_nok/{nok_id?}/{patient?}/{is_primary?}', 'NextOfKinController@create')->name('create_nok');
 Route::post('/store_nok', 'NextOfKinController@store')->name('store_nok');
 Route::get('/show_nok/{nok}/', 'NextOfKinController@show')->name('show_nok');
 Route::get('/edit_nok/{nok}/', 'NextOfKinController@edit')->name('edit_nok');
 Route::post('/update_nok/{nok}', 'NextOfKinController@update')->name('update_nok');
 Route::get('/delete_nok/{nok}', 'NextOfKinController@destroy')->name('delete_nok');
+Route::get('/associate_patient/{nok}/{last_name?}', 'NextOfKinController@associate_patient')->name('associate_patient');
+
 
 
 //Route::get('/reports', 'HomeController@index')->name('reports');
