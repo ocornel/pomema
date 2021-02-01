@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Credit;
 use App\Patient;
 use Illuminate\Http\Request;
+use App\Http\Controllers\HomeController as HC;
 use Auth;
 
 class CreditController extends Controller
@@ -19,10 +20,24 @@ class CreditController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
-    public function index()
+    public function index($status_filter=null)
     {
-        $credits = Credit::all();
+        switch ($status_filter) {
+            case HC::WIDGET_OUTSTANDING:
+                $credits = Credit::all()->filter(function ($credit)  {
+                    return $credit->cleared == false;
+                })->values();;
+                break;
+            case HC::WIDGET_CLEARED:
+                $credits = Credit::all()->filter(function ($credit)  {
+                    return $credit->cleared == true;
+                })->values();;
+                break;
+            default:
+                $credits = Credit::all();
+        }
         $context = [
+            'status_filter'=>$status_filter,
             'credits'=> $credits
         ];
         return view('credit.index', $context);

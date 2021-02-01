@@ -2,7 +2,7 @@
 
 @section('page_content')
     <div class="card">
-        <div class="card-header">Patients
+        <div class="card-header">{{ $age_filter }} Patients
             <a style="float: right" href="{{ route('create_patient') }}">Add Patient</a>
         </div>
 

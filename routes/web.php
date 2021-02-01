@@ -30,7 +30,7 @@ Route::get('/delete_user/{user}', 'UserController@destroy')->name('delete_user')
 
 
 //PATIENT
-Route::get('/patients', 'PatientController@index')->name('patients');
+Route::get('/patients/{age_filter?}', 'PatientController@index')->name('patients');
 Route::get('/create_patient', 'PatientController@create')->name('create_patient');
 Route::post('/store_patient', 'PatientController@store')->name('store_patient');
 Route::get('/show_patient/{patient}/{last_name?}', 'PatientController@show')->name('show_patient');
@@ -40,7 +40,7 @@ Route::get('/delete_patient/{patient}', 'PatientController@destroy')->name('dele
 Route::get('/associate_nok/{patient}/{last_name?}', 'PatientController@associate_nok')->name('associate_nok');
 
 //CREDIT
-Route::get('/credits', 'CreditController@index')->name('credits');
+Route::get('/credits/{filter_status?}', 'CreditController@index')->name('credits');
 Route::get('/create_credit/{patient}/{last_name?}', 'CreditController@create')->name('create_credit');
 Route::post('/store_credit', 'CreditController@store')->name('store_credit');
 Route::get('/show_credit/{credit}/{code?}/', 'CreditController@show')->name('show_credit');
@@ -60,3 +60,9 @@ Route::get('/associate_patient/{nok}/{last_name?}', 'NextOfKinController@associa
 
 //REPORTS
 Route::get('/patient_credit/{patient}/{format?}/}{last_name?}', 'ReportsController@patient_credit')->name('patient_credit_report');
+Route::get('/dashboard_item_link/{title?}', 'HomeController@dashboard_item_link')->name('dashboard_item_link');
+
+
+//EXTRAS
+Route::get('/load_widget', 'HomeController@load_widget')->name('load_widget');
+Route::get('template_code', 'UtilsController@template_code')->name('template_code');
