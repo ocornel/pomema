@@ -7,6 +7,7 @@ use App\Patient;
 use Illuminate\Http\Request;
 use App\Http\Controllers\HomeController as HC;
 use Auth;
+use Illuminate\Support\Facades\Session;
 
 class CreditController extends Controller
 {
@@ -70,9 +71,22 @@ class CreditController extends Controller
             $request['cleared_by'] = Auth::user()->id;
         }
         $request['due_date'] = date_create($request['due_date']);
-
-        $credit = Credit::create($request->all());
-        $patient = $credit->patient;
+        $patient = Patient::find($request->patient_id);
+        if ($patient->credit_due < 0) {
+            $overpaid = $patient->credits->where('amount_due', '<', 0)->where('cleared', 0)->first();
+            $over_amount = $overpaid->amount_due * -1;
+            $overpaid ->update([
+                'cleared'=>true,
+                'amount_due'=>-1* $request->amount_due,
+                'cleared_by' =>Auth()->user()->id,
+                'cleared_on'=>now()
+            ]);
+            $credit = Credit::create($request->all());
+            $credit->clear($over_amount);
+        }
+        else{
+            $credit = Credit::create($request->all());
+        }
         return redirect(route('show_patient', [$patient, $patient->last_name]));
     }
 
@@ -122,5 +136,26 @@ class CreditController extends Controller
     public function destroy(Credit $credit)
     {
         dd('delete credit here', $credit->attributesToArray());
+    }
+
+    public function clear_credit(Request $request) {
+        $credit = Credit::find($request->credit_id);
+        if ($credit) {
+            $amount_paid = $request->amount_paid;
+            $result = $credit->clear($amount_paid);
+            if ($overflow = $result['overflow'] > 0) {
+                Session::flash('success', "An overpayment credit of $overflow created for use on next patient credit.");
+            }
+            elseif ($result['result'] == 'underpaid') {
+                Session::flash('success', "Credit cleared. Balance used to create new credit due today.");
+            }
+            elseif ($result['result'] == 'cleared') {
+                Session::flash('success', "Credit cleared.");
+            }
+            return redirect(route('show_patient', [$credit->patient_id, $credit->patient->last_name]));
+
+        }
+        else Session::flash('error', "Credit you're attempting to clear not found.");
+        return redirect(route('credits', HC::WIDGET_OUTSTANDING));
     }
 }

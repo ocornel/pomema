@@ -116,7 +116,7 @@ class HomeController extends Controller
     function DashboardDebtsDueSoon($days = 1)
     {
         $total_due_soon = 0;
-        $credits = Credit::where('cleared', false)->get()
+        $credits = Credit::where('cleared', false)->where('amount_due', '>', 0)->get()
             ->filter(function ($credit) use (&$total_due_soon, $days) {
                 $due_date = $credit->due_date;
                 $soon_date = date('Y-m-d', strtotime("+$days days"));

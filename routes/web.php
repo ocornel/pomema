@@ -46,6 +46,7 @@ Route::post('/store_credit', 'CreditController@store')->name('store_credit');
 Route::get('/show_credit/{credit}/{code?}/', 'CreditController@show')->name('show_credit');
 Route::get('/edit_credit/{credit}/{code?}/', 'CreditController@edit')->name('edit_credit');
 Route::post('/update_credit/{credit}', 'CreditController@update')->name('update_credit');
+Route::post('/clear_credit', 'CreditController@clear_credit')->name('clear_credit');
 Route::get('/delete_credit/{credit}/{code?}', 'CreditController@destroy')->name('delete_credit');
 
 //NEXT OF KINS

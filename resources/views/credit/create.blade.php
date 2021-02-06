@@ -37,8 +37,8 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="amount_due" class="control-label">Amount</label>
-                            <input type="number" class="form-control" step="0.01" id="amount_due" required
-                                   name="amount_due"
+                            <input type="number" class="form-control" step="0.5" id="amount_due" required
+                                   name="amount_due" min="1"
                                    @isset($credit)
                                    value="{{ $credit->amount_due }}"
                                 @endisset>
