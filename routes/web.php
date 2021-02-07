@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('landing_page');
-});
+})->name('landing');
 
 Auth::routes();
 

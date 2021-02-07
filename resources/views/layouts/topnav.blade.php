@@ -61,7 +61,7 @@ $auth_user = Auth::user();
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li>
-                            <a href="mailto:mrtncornel@gmail.com?subject={{ $auth_user->name }} Need Help for {{env('APP_NAME', 'Ponacare')}}">
+                            <a href="mailto:{{env('ADMIN_EMAIL', 'mrtncornel@gmail.com')}}?subject={{ $auth_user->name }} Need Help for {{env('APP_NAME', 'Ponacare')}}">
                                 <h5 class="navbar-upgrade-heading">
                                     Need Help?
                                     <small class="navbar-upgrade-notification">Contact the system developer</small>
