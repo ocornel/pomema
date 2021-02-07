@@ -58,7 +58,7 @@
                             <p class="masthead-lead">Visit our main office at...</p>
                         </div>
                         <div class="col-sm-12 col-sm-offset-0">
-                            <img class="masthead-img" src="{{ asset('img/logo_blue_white.png') }}" alt="Ponacare">
+                            <img class="masthead-img" data-src="{{ asset('img/logo_blue_white.png') }}" alt="Ponacare">
                         </div>
                         <div class="col-md-12">
                             <hr>
@@ -125,5 +125,31 @@
 <script src="{{ asset('js/elephant.min.js') }}"></script>
 <script src="{{ asset('js/landing-page.min.js') }}"></script>
 
+<script>
+    // lazy load images
+    const config = {
+        rootMargin: '0px 0px 50px 0px',
+        threshold: 0
+    };
+
+    let observer = new IntersectionObserver(function (entries, self) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                preloadImage(entry.target);
+                self.unobserve(entry.target)
+            }
+        });
+    }, config);
+
+    function preloadImage(target) {
+        const lazyImage = target;
+        lazyImage.src = lazyImage.dataset.src;
+    }
+
+    const imgs = document.querySelectorAll('[data-src]');
+    imgs.forEach(img => {
+        observer.observe(img);
+    });
+</script>
 </body>
 </html>
