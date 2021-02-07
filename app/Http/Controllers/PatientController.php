@@ -23,9 +23,9 @@ class PatientController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
-    public function index($age_filter=null)
+    public function index($filter=null)
     {
-        switch ($age_filter) {
+        switch ($filter) {
             case HC::WIDGET_O5:
                 $patients = Patient::all()->filter(function ($patient)  {
                     return $patient->years >= 5;
@@ -36,11 +36,16 @@ class PatientController extends Controller
                     return $patient->years < 5;
                 })->values();;
                 break;
+            case HC::PATIENTS_WITH_DEBT:
+                $patients = Patient::all()->filter(function ($patient)  {
+                    return $patient->credit_due > 0;
+                })->values();;
+                break;
             default:
                 $patients = Patient::all();
         }
         $context = [
-            'age_filter' =>$age_filter,
+            'list_filter' =>$filter,
             'patients' => $patients
         ];
         return view('patient.index', $context);

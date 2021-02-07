@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
@@ -27,6 +27,8 @@
     {{--    <link rel="manifest" href="manifest.json">--}}
     {{--    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#27ae60">--}}
     <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,700">
     <link href="{{ asset('css/vendor.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/elephant.min.css') }}" rel="stylesheet">

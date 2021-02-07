@@ -14,6 +14,7 @@ class UsersTableSeeder extends Seeder
     {
         if ($this->command) $this->command->info('Creating Default Users');
         User::create([
+            'id'=>\App\Utils::SUPER_ADMIN_ID,
             'name' => 'System Admin',
             'email' => "sadmin@mcornel.com",
             'password' => bcrypt('Sy5@dm!n')
