@@ -36,7 +36,7 @@
 </head>
 <body>
     <div id="app">
-        @include('layouts.topnav')
+{{--        @include('layouts.topnav')--}}
 
         <main class="py-4">
             @yield('content')

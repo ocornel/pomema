@@ -33,7 +33,7 @@
         @isset($actions)
         <td>
             <a href="{{ route('edit_nok', [$nok, $nok->last_name]) }}" title="Edit"
-               class="btn-sm btn-secondary"><i class="fa fa-edit"></i></a>
+               class="btn-sm btn-warning"><i class="fa fa-edit"></i></a>
             <a href="{{ route('delete_nok', [$nok]) }}" title="Delete" class="btn-sm btn-danger"><i
                     class="fa fa-trash"></i></a>
         </td>@elseif(isset($extractions))
