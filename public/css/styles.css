@@ -1,14 +1,61 @@
-
 :root {
-    --5c-default-font-size: 14px;
-    --5c-blue: #56C8F3;
-    --5c-dark-blue: #0D325B;
-    --5c-dark-grey: #111111;
-    --5c-light-grey: #434343;
-    --5c-faint-grey: #EEEEEE;
-    --5c-danger-red: #EE1122;
-    --h: 50;
+    --theme-green: #8cc347;
+    --theme-dark-blue: #050180;
+    --theme-light-blue: #2e96b9;
+    --theme-red: #fe0302;
+    --theme-default-font-size: 14px;
 }
+
 * {
-    font-size: var(--5c-default-font-size);
+    font-size: var(--theme-default-font-size);
+}
+.navbar-default .navbar-header {
+    background-color: var(--theme-green);
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: var(--theme-green);
+}
+.layout-header {
+    background-color: var(--theme-green);
+}
+.navbar-default {
+    background-color: var(--theme-green);
+    border-color: var(--theme-green);
+}
+.navbar-default .navbar-search {
+    background-color: var(--theme-green);
+    color: #fff;
+}
+.navbar-default .sidenav-toggler.collapsed {
+    background-color: var(--theme-light-blue);
+}
+.sidenav-heading {
+    color: var(--theme-light-blue);
+    font-size: 14px;
+}
+.masthead {
+    background-color: white;
+    color: var(--theme-dark-blue);
+}
+.masthead-heading, .masthead-lead {
+    color: var(--theme-dark-blue);
+}
+@media (max-width: 770px) {
+    .navbar-brand-logo {
+        height: 50px;
+    }
+}
+@media (min-width: 800px) {
+    .navbar-brand-logo {
+        height: 92px;
+    }
+}
+.card-header {
+    color: var(--theme-dark-blue);
+    font-weight: 500;
+}
+.btn-inactive {
+    background-color: #777777;
+    border-color: #777777;
+    color: #fff;
 }

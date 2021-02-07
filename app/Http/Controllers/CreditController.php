@@ -34,6 +34,11 @@ class CreditController extends Controller
                     return $credit->cleared == true;
                 })->values();;
                 break;
+            case HC::CREDITS_OVERPAID:
+                $credits = Credit::all()->filter(function ($credit)  {
+                    return $credit->amount_due < 0;
+                })->values();;
+                break;
             default:
                 $credits = Credit::all();
         }
