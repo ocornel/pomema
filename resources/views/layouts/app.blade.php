@@ -11,7 +11,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
-
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -37,7 +36,7 @@
 </head>
 <body>
     <div id="app">
-        @include('layouts.topnav')
+{{--        @include('layouts.topnav')--}}
 
         <main class="py-4">
             @yield('content')

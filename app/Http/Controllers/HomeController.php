@@ -23,10 +23,14 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    public const WIDGET_U5 = 'Clients Under 5';
-    public const WIDGET_O5 = 'Clients Over 5';
+    public const WIDGET_U5 = 'Under 5';
+    public const WIDGET_O5 = 'Over 5';
+    public const PATIENTS_WITH_DEBT = 'With Outstanding Debts';
+
     public const WIDGET_OUTSTANDING = 'Total Outstanding Debts';
-    public const WIDGET_CLEARED = 'Total Cleared Debts';
+    public const WIDGET_CLEARED = 'Cleared Debt';
+    public const CREDITS_OVERPAID = 'Overpaid Debt';
+
     public const WIDGET_DUE = 'Debts Due Soon';
     public const WIDGET_DEBT_TREND = 'Debts Trend';
 

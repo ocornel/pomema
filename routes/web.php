@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('landing_page');
+})->name('landing');
 
 Auth::routes();
 
