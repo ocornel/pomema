@@ -9,6 +9,9 @@
         <th>AGE</th>
         <th>DUE CREDITS</th>
         <th>PHONE</th>
+        @isset($include_residence)
+        <th>RESIDENCE</th>
+        @endisset
         @isset($actions)
         <th>ACTIONS</th>
             @elseif(isset($extractions))
@@ -26,6 +29,9 @@
         <td>{{ $patient->age }}</td>
         <td align="right">{{ number_format($patient->credit_due, 2) }}</td>
         <td>{{ $patient->phone }}</td>
+        @isset($include_residence)
+            <td>{{ $patient->residence }}</td>
+        @endisset
         @isset($actions)
         <td>
             <a href="{{ route('edit_patient', [$patient, $patient->last_name]) }}" title="Edit"

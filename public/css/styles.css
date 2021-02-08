@@ -59,3 +59,7 @@
     border-color: #777777;
     color: #fff;
 }
+.required:before {
+    content: "* ";
+    font-weight: bold;
+}

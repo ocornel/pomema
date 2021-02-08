@@ -134,28 +134,31 @@ class PatientController extends Controller
         $request['dob'] = date_create($request['dob']);
         $nok_id = $request['p_nok_id'];
         $patient->update($request->all());
-        $nok = NextOfKin::where('id_number', $nok_id)->first();
-        if ($nok) {
-            foreach (PatientNok::where('patient_id', $patient->id)->get() as $pnok) {
-                $pnok->update(['is_primary' => false]);
-            }
-            PatientNok::updateOrCreate([
-                'patient_id' => $patient->id,
-                'nok_id' => $nok->id],
-                [
-                    'created_by' => Auth::user()->id,
-                    'is_primary' => true
-                ]);
-            Session::flash('success', 'Patient Updated.');
-            return redirect(route('show_patient', [$patient, $patient->last_name]));
-        } else
+        if (str_replace(' ','', $nok_id) !='') {
+            $nok = NextOfKin::where('id_number', $nok_id)->first();
+            if ($nok) {
+                foreach (PatientNok::where('patient_id', $patient->id)->get() as $pnok) {
+                    $pnok->update(['is_primary' => false]);
+                }
+                PatientNok::updateOrCreate([
+                    'patient_id' => $patient->id,
+                    'nok_id' => $nok->id],
+                    [
+                        'created_by' => Auth::user()->id,
+                        'is_primary' => true
+                    ]);
+                Session::flash('success', 'Patient Updated.');
+                return redirect(route('show_patient', [$patient, $patient->last_name]));
+            } else
 //            redirect to creating nok with this id number
-            $nok_context = [
-                'patient' => $patient,
-                'nok_id' => $nok_id,
-                'is_primary'=>true
-            ];
-        return redirect(route('create_nok', $nok_context));
+                $nok_context = [
+                    'patient' => $patient,
+                    'nok_id' => $nok_id,
+                    'is_primary' => true
+                ];
+            return redirect(route('create_nok', $nok_context));
+        }
+        return redirect(route('show_patient', [$patient, $patient->last_name]));
     }
 
     /**

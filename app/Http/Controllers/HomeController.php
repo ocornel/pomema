@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Credit;
+use App\NextOfKin;
 use App\Patient;
 use App\Utils;
 use Carbon\Carbon;
@@ -176,5 +177,106 @@ class HomeController extends Controller
             default:
                 return redirect(route('home'));
         }
+    }
+
+    public function search(\Illuminate\Http\Request $request)
+    {
+        $words = explode(' ', $request->search_text);
+        $result = [
+            'credits' => $this->searchCredits($words),
+            'patients' => $this->searchPatients($words),
+            'noks' => $this->searchNoks($words),
+        ];
+        return response()->json($result, 200);
+    }
+
+    function searchPatients(array $words)
+    {
+        $patients = [];
+        foreach ($words as $word) {
+            $word = strtolower($word);
+            Patient::all()->filter(function ($patient) use (&$patients, $word) {
+                if (is_numeric(strpos(strtolower($patient->full_name), $word)) ||
+                    is_numeric(strpos(strtolower($patient->pc_number), $word))  ||
+                    is_numeric(strpos(strtolower($patient->residence), $word))  ||
+                    is_numeric(strpos(strtolower($patient->phone), $word))) {
+                    if (!in_array($patient, $patients)) {
+                        array_push($patients, $patient);
+                    }
+                }
+
+            });
+        }
+//        dd($patients);
+
+        if (sizeof($patients) == 0) {
+            return "<p class='bg-info'>No Matching Patients Found</p>";
+        }
+        $context = [
+            'component' => 'components.table_patients',
+            'data_array' => ['patients' => $patients, 'include_residence'=>true],
+            'title' =>'Matching Patients'
+        ];
+        $data = view('components.search_results', $context)->renderSections()['results'];
+        return $data;
+    }
+
+    function searchNoks(array $words)
+    {
+        $noks = [];
+        foreach ($words as $word) {
+            $word = strtolower($word);
+            NextOfKin::all()->filter(function ($nok) use (&$noks, $word) {
+                if (is_numeric(strpos(strtolower($nok->full_name), $word) )||
+                    is_numeric(strpos(strtolower($nok->id_number), $word) ) ||
+                    is_numeric(strpos(strtolower($nok->residence), $word) ) ||
+                    is_numeric(strpos(strtolower($nok->work_place), $word))  ||
+                    is_numeric(strpos(strtolower($nok->phone), $word) )) {
+                    if (!in_array($nok, $noks)) {
+                        array_push($noks, $nok);
+                    }
+                }
+
+            });
+        }
+
+        if (sizeof($noks) == 0) {
+            return "<p class='bg-info'>No Matching Contact People Found</p>";
+        }
+        $context = [
+            'component' => 'components.table_noks',
+            'data_array' => ['noks' => $noks],
+            'title' =>'Matching Contact People (NOKs)'
+        ];
+        $data = view('components.search_results', $context)->renderSections()['results'];
+        return $data;
+    }
+
+    function searchCredits(array $words)
+    {
+        $credits = [];
+        foreach ($words as $word) {
+            $word = strtolower($word);
+            Credit::all()->filter(function ($credit) use (&$credits, $word) {
+                if (is_numeric(strpos(strtolower($credit->amount_due), $word)) ||
+                    is_numeric(strpos(strtolower($credit->code), $word))) {
+                    if (!in_array($credit, $credits)) {
+                        array_push($credits, $credit);
+                    }
+                }
+
+            });
+        }
+
+        if (sizeof($credits) == 0) {
+            return "<p class='bg-info'>No Matching Credits Found</p>";
+        }
+        $context = [
+            'component' => 'components.table_credits',
+            'data_array' => ['credits' => $credits],
+            'title' =>'Matching Credits'
+        ];
+        $data = view('components.search_results', $context)->renderSections()['results'];
+        return $data;
     }
 }
