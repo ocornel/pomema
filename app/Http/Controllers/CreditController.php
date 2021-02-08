@@ -72,7 +72,6 @@ class CreditController extends Controller
     public function store(Request $request)
     {
         if($request['cleared'] == 1) {
-            $request['cleared_on'] = now();
             $request['cleared_by'] = Auth::user()->id;
         }
         $request['due_date'] = date_create($request['due_date']);

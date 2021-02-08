@@ -46,8 +46,11 @@ $auth_user = Auth::user();
                 <li class="hidden-xs hidden-sm">
                     <form class="navbar-search navbar-search-collapsed">
                         <div class="navbar-search-group">
-                            <input class="navbar-search-input" type="text" placeholder="Search for patient, next of kin, and credit&hellip;">
-                            <button class="navbar-search-toggler" title="Expand search form ( S )" aria-expanded="false" type="submit">
+                            <input class="navbar-search-input" type="text"
+                                   onchange="systemSearch(this.value)" name="search_text" id="search_text"
+                                   placeholder="Search for patient, next of kin, and credit&hellip;">
+                            <button class="navbar-search-toggler" title="Expand search form ( S )" aria-expanded="false" type="submit"
+                                    onclick="systemSearch(document.getElementById('search_text').value)">
                                 <span class="icon icon-search icon-lg"></span>
                             </button>
 {{--                            <button class="navbar-search-adv-btn" type="button">Advanced</button>--}}

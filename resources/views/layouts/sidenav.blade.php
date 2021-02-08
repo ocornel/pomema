@@ -55,7 +55,7 @@
                 @if(Auth::user()->id == \App\Utils::SUPER_ADMIN_ID)
                     <li class="sidenav-item">
                         <a href="{{ route('users') }}">
-                            <span class="sidenav-icon icon icon-columns"></span>
+                            <span class="sidenav-icon icon icon-users"></span>
                             <span class="sidenav-label">System Users</span>
                         </a>
                     </li>

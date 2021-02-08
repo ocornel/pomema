@@ -7,7 +7,7 @@
         <th>AMOUNT</th>
         <th>RECORD DATE</th>
         <th>DUE DATE</th>
-        <th>CLEARED</th>
+        <th>STATUS</th>
         <th>CLEARED ON</th>
         @isset($actions)
         <th>ACTIONS</th>
