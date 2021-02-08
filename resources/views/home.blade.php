@@ -49,6 +49,7 @@
                     'item':item
                 },
                 success: function (data) {
+                    console.log(item_title);
                     document.getElementById(widget_id).innerHTML = data.content;
                     document.getElementById(widget_id).hidden = false;
                     $('.dataTable').DataTable();
