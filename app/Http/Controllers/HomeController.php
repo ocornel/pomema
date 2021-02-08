@@ -17,11 +17,11 @@ class HomeController extends Controller
      * Create a new controller instance.
      *
      * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+//     */
+//    public function __construct()
+//    {
+//        $this->middleware('auth');
+//    }
 
     public const WIDGET_U5 = 'Clients Under 5';
     public const WIDGET_O5 = 'Clients Over 5';
@@ -49,7 +49,6 @@ class HomeController extends Controller
 
     public function load_widget(Request $request)
     {
-        dd($request->all());
         switch ($item_title = $request->item_title) {
             case self::WIDGET_OUTSTANDING:
                 $values = $this->DashboardTotalOutstanding();
@@ -110,7 +109,6 @@ class HomeController extends Controller
                 ];
                 return UC::template_code($request_content);
             default:
-                dd($item_title);
                 return ['content' => 'Unknown widget'];
         }
     }
