@@ -139,7 +139,7 @@ class PatientController extends Controller
                     'created_by' => Auth::user()->id,
                     'is_primary' => true
                 ]);
-            Session::flash('success', 'Patient created.');
+            Session::flash('success', 'Patient Updated.');
             return redirect(route('show_patient', [$patient, $patient->last_name]));
         } else
 //            redirect to creating nok with this id number
@@ -164,6 +164,10 @@ class PatientController extends Controller
 
     public function associate_nok(Patient $patient)
     {
-        dd('Associate Patient to existing or new Contact Person', $patient->attributesToArray());
+        $context = [
+           'noks'=>NextOfKin::all(),
+            'patient'=>$patient
+        ];
+        return view('patient.associate_nok', $context);
     }
 }

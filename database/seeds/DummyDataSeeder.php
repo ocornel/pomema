@@ -26,11 +26,11 @@ class DummyDataSeeder extends Seeder
 
         # PATIENTS
         if ($this->command) $this->command->info('Creating Dummy Patients');
-        factory(Patient::class, 10)->create();
+        factory(Patient::class, 50)->create();
 
         # NEXT OF KIN
         if ($this->command) $this->command->info('Creating Dummy Next of Kins');
-        factory(NextOfKin::class, 5)->create();
+        factory(NextOfKin::class, 30)->create();
 
         # PATIENT NEXT OF KIN
         if ($this->command) $this->command->info('Linking Patients to Next of Kins');
@@ -38,7 +38,7 @@ class DummyDataSeeder extends Seeder
 
         # CREDITS
         if ($this->command) $this->command->info('Creating Dummy Credits');
-        factory(Credit::class, 50)->create();
+        factory(Credit::class, 150)->create();
 
 //        # RESOLVE STUFF
 //        if ($this->command) $this->command->info('Resolving Stuff');
