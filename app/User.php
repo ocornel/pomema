@@ -47,4 +47,9 @@ class User extends Authenticatable
             'credits' => $credits,
             'noks' => $noks];
     }
+
+    public function getCreationsCountAttribute() {
+        $creations = $this->creations;
+        return $creations['patients']->count() + $creations['credits']->count()+$creations['noks']->count();
+    }
 }

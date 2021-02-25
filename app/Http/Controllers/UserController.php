@@ -102,10 +102,16 @@ class UserController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function destroy(User $user)
     {
-        dd('delete user here', $user->attributesToArray());
+        if($user->creations_count > 0){
+            Session::flash('error', 'Cannot delete user that has created records.');
+            return redirect()->back();
+        }
+        $user->delete();
+        Session::flash('success', 'User Deleted.');
+        return redirect(route('users'));
     }
 }

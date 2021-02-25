@@ -26,8 +26,8 @@
         <td>{{ \Carbon\Carbon::parse($credit->cleared_on)->format('Y M d') }}</td>
         @isset($actions)
         <td>
-            <a href="{{ route('edit_credit', [$credit, $credit->code]) }}" title="Edit"
-               class="btn-sm btn-warning"><i class="fa fa-edit"></i></a>
+            <a href="{{ route('show_credit', [$credit, $credit->code]) }}" title="View"
+               class="btn-sm btn-primary"><i class="fa fa-info"></i></a>
 {{--            <a href="{{ route('delete_credit', [$credit, $credit->code]) }}" title="Delete" class="btn-sm btn-danger"><i--}}
 {{--                    class="fa fa-trash"></i></a>--}}
         </td>@endisset

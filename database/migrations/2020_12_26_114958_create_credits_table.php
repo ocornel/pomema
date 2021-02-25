@@ -24,7 +24,7 @@ class CreateCreditsTable extends Migration
             $table->unsignedBigInteger('cleared_by')->nullable();
             $table->timestamps();
 
-            $table->foreign('patient_id')->references('id')->on('patients');
+            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
             $table->foreign('created_by')->references('id')->on('users');
             $table->foreign('cleared_by')->references('id')->on('users');
 

@@ -21,8 +21,8 @@ class CreatePatientNoksTable extends Migration
             $table->boolean('is_primary')->default(false);
             $table->timestamps();
 
-            $table->foreign('patient_id')->references('id')->on('patients');
-            $table->foreign('nok_id')->references('id')->on('next_of_kin');
+            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
+            $table->foreign('nok_id')->references('id')->on('next_of_kin')->onDelete('cascade');
             $table->foreign('created_by')->references('id')->on('users');
         });
     }

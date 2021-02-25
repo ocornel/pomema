@@ -123,11 +123,13 @@ class NextOfKinController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\NextOfKin $nok
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function destroy(NextOfKin $nok)
     {
-        dd('delete nok here', $nok->attributesToArray());
+        $nok->delete();
+        Session::flash('success', 'Next of Kin Deleted');
+        return  redirect(route('noks'));
     }
 
     public function associate_patient(NextOfKin $nok)
