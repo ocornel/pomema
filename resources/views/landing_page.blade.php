@@ -39,7 +39,7 @@
                     <div class="row">
                         <div class="col-sm-10 col-sm-offset-1">
                             <h3 class="masthead-heading">This system is only for use by PONACARE authorised personel only.</h3>
-                            <p class="masthead-lead">Visit our main office at...</p>
+                            <p class="masthead-lead">Visit our main office Along Kisimani - Mgongeni street Off Mombasa - Malindi Road</p>
                         </div>
                         <div class="col-sm-12 col-sm-offset-0">
                             <img class="masthead-img" data-src="{{ asset('img/logo_blue_white.png') }}" alt="Ponacare">
@@ -96,10 +96,10 @@
             </div>
             <div class="col-sm-12 col-md-5">
                 <h4 class="footer-heading">Contact</h4>
-                <i class="icon icon-phone"></i> +254724755556 <br>
-                <i class="icon icon-mail-reply"></i> <a href="mailto:mrtncornel@gmail.com">mrtncornel@gmail.com</a><br>
-                <i class="icon icon-envelope"></i> <a href="https://www.google.com/maps/@-1.3013234,36.753088,140m/data=!3m1!1e3">B15 Jampark Plaza, Ngong Road 6, Nairobi</a><br>
-                <i class="icon icon-envelope"></i> 254724755556 - 00100, Nairobi, KENYA<br>
+                <i class="icon icon-phone"></i> +254729 249 153 <br>
+{{--                <i class="icon icon-mail-reply"></i> <a href="mailto:mrtncornel@gmail.com">mrtncornel@gmail.com</a><br>--}}
+                <i class="icon icon-map-marker"></i> <a href="https://goo.gl/maps/FDVFnGFVPMu4iuWR8">Ponacare Medical Center, Along Kisimani - Mgongeni street, NYALI</a><br>
+                <i class="icon icon-envelope"></i> 34116 - 80118, Nyali KENYA<br>
             </div>
         </div>
         <p>2021 &copy; {{ env('APP_NAME', 'Ponacare') }} <a href="{{ env('CREATOR_URL', '') }}">{{ env('CREATOR_NAME', 'Made for you.') }}</a></p>

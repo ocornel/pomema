@@ -116,7 +116,7 @@ class CreditController extends Controller
      */
     public function edit(Credit $credit)
     {
-        dd('edit credit here', $credit);
+//        We do not edit credit
     }
 
     /**
@@ -128,7 +128,7 @@ class CreditController extends Controller
      */
     public function update(Request $request, Credit $credit)
     {
-        dd('update credit here', $credit, $request);
+//        dd('update credit here', $credit, $request);
     }
 
     /**
@@ -139,7 +139,7 @@ class CreditController extends Controller
      */
     public function destroy(Credit $credit)
     {
-        dd('delete credit here', $credit->attributesToArray());
+//        dd('delete credit here', $credit->attributesToArray());
     }
 
     public function clear_credit(Request $request) {

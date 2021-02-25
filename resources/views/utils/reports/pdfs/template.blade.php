@@ -118,7 +118,10 @@
 <div style="width: 100%; background: #FFFFFF;">
     <div style="width: 60%;" class="inline">
         <p class="header">{{env('APP_NAME')}}<br>
-            [full_address_here]</p>
+            Along Kisimani - Mgongeni street <br>
+            Off Mombasa - Malindi Road <br>
+            P.O BOX 34116 - 80118 NYALI <br>
+            TEL: 0729 249 153</p>
     </div>
 
     <div style="width: 40%;" class="inline">
