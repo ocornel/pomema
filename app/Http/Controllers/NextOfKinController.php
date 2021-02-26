@@ -71,7 +71,7 @@ class NextOfKinController extends Controller
                 'is_primary' => $request['is_primary']
             ]);
         }
-        Session::flash('success', 'Nex of Kin created');
+        Session::flash('success', 'Nex of Kin created successfully.');
         return redirect(route('noks'));
     }
 
@@ -115,7 +115,7 @@ class NextOfKinController extends Controller
     {
         $request['dob'] = date_create($request['dob']);
         $nok->update($request->all());
-        Session::flash('success', 'Next of Kin updated');
+        Session::flash('success', 'Next of Kin updated successfully.');
         return redirect(route('show_nok', $nok));
     }
 

@@ -51,7 +51,7 @@ class UserController extends Controller
 
         $request['password'] = bcrypt($request['password']);
         User::create($request->all());
-        Session::flash('success', 'User created');
+        Session::flash('success', 'User created successfully.');
         return redirect(route('users'));
     }
 
@@ -94,7 +94,7 @@ class UserController extends Controller
     {
         $request['password'] = bcrypt($request['password']);
         $user->update($request->all());
-        Session::flash('success', 'User Updated.');
+        Session::flash('success', 'User Updated successfully.');
         return redirect(route('show_user', [$user, $user->last_name]));
  }
 
