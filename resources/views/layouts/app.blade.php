@@ -22,8 +22,8 @@
 
     <!-- Styles -->
     <link href="{{asset('packages/css/font-awesome.min.css')}}" rel="stylesheet">
-{{--    <link href="{{asset('packages/css/dataTables.bootstrap.min.css')}}" rel="stylesheet">--}}
-    <link href="//cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="{{asset('packages/css/dataTables.bootstrap.min.css')}}" rel="stylesheet">
+{{--    <link href="//cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" rel="stylesheet">--}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <style>
@@ -47,7 +47,7 @@
 {{--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>--}}
 {{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxy/1.6.1/scripts/jquery.ajaxy.min.js"></script>--}}
     <script src="{{ asset('packages/js/dataTables.bootstrap.min.js') }}"></script>
-    <script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+{{--    <script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>--}}
 
     <script src="{{ asset('js/scripts.js') }}"></script>
     @yield('additional_scripts')

@@ -36,7 +36,7 @@
             load_dashboards();
             setInterval(function() {
                 load_dashboards();
-            }, 2000);
+            }, 5000);
         })
 
         function load_dashboards() {

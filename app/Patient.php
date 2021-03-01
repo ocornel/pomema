@@ -60,7 +60,7 @@ class Patient extends BaseModel
     }
 
     public function getCreditsAttribute() {
-        return Credit::wherePatientId($this->id)->get();
+        return Credit::wherePatientId($this->id)->orderBy('due_date', 'asc')->get();
     }
 
     public function getCreditDueAttribute() {
@@ -81,6 +81,10 @@ class Patient extends BaseModel
 
     public function getUidAttribute() {
         return $this->pc_number;
+    }
+
+    public function getNextDueCreditAttribute() {
+        return Credit::wherePatientId($this->id)->whereCleared(0)->orderBy('due_date', 'asc')->first();
     }
 
 }

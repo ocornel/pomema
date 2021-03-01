@@ -2,7 +2,7 @@
 
 @section('page_content')
     <div class="card">
-        <div class="card-header">{{ $patient->full_name }}
+        <div class="card-header"><a href="{{ route('show_patient', [$patient, $patient->last_name]) }}">{{ $patient->full_name }}</a>
             <a style="float: right" class="btn btn-primary"
                href="{{ route('edit_patient', [$patient, $patient->last_name]) }}">Edit Patient</a>
         </div>

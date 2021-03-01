@@ -2,9 +2,10 @@
 
 @section('page_content')
     <div class="card">
-        <div class="card-header">{{ $nok->full_name }}
-            <a style="float: right" class="btn btn-primary" href="{{ route('edit_nok', [$nok, $nok->last_name]) }}">Edit NOK</a>
-        </div>
+        <div class="card-header"><a href="{{ route('show_nok', [$nok, $nok->last_name]) }}">{{ $nok->full_name }}</a>
+            <a style="float: right" class="btn btn-primary"
+               href="{{ route('edit_nok', [$nok, $nok->last_name]) }}">Edit
+                NOK</a></div>
         <div class="card-body">
             @if (session('status'))
                 <div class="alert alert-success" role="alert">
