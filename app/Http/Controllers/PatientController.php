@@ -68,23 +68,25 @@ class PatientController extends Controller
         $nok_id = $request['p_nok_id'];
         $patient = Patient::create($request->all());
         Session::flash('success', 'Patient created');
-        $nok = NextOfKin::where('id_number', $nok_id)->first();
-        if ($nok) {
-            PatientNok::create([
-                'patient_id' => $patient->id,
-                'nok_id' => $nok->id,
-                'created_by' => $patient->created_by,
-                'is_primary' => true
-            ]);
-            return redirect(route('patients'));
-        } else
+        if (str_replace(' ','', $nok_id) !='') {
+            $nok = NextOfKin::where('id_number', $nok_id)->first();
+            if ($nok) {
+                PatientNok::create([
+                    'patient_id' => $patient->id,
+                    'nok_id' => $nok->id,
+                    'created_by' => $patient->created_by,
+                    'is_primary' => true
+                ]);
+            } else
 //            redirect to creating nok with this id number
-            $nok_context = [
-                'patient' => $patient,
-                'nok_id' => $nok_id,
-                'is_primary'=>true
-            ];
-        return redirect(route('create_nok', $nok_context));
+                $nok_context = [
+                    'patient' => $patient,
+                    'nok_id' => $nok_id,
+                    'is_primary'=>true
+                ];
+            return redirect(route('create_nok', $nok_context));
+        }
+        return redirect(route('patients'));
     }
 
     /**
@@ -165,7 +167,6 @@ class PatientController extends Controller
     public function associate_nok(Patient $patient)
     {
         $context = [
-           'noks'=>NextOfKin::all(),
             'patient'=>$patient
         ];
         return view('patient.associate_nok', $context);
