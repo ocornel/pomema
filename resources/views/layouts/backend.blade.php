@@ -32,6 +32,7 @@
     <link href="{{ asset('css/elephant.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/application.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/demo.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 
     <style>
         .card-header {
@@ -43,7 +44,7 @@
     </style>
     @yield('additional_styles')
 </head>
-<body class="layout layout-header-fixed">
+<body class="layout layout-header-fixed layout-sidebar-fixed layout-footer-fixed">
 <div class="layout-header">
     @include('layouts.topnav')
 </div>
@@ -56,7 +57,7 @@
             @yield('page_content')
         </div>
     </div>
-    <div class="layout-footer">
+    <div class="layout-footer ">
         <div class="layout-footer-body">
             @include('layouts.footer')
         </div>
