@@ -20,9 +20,12 @@
                     <ul class="sidenav-subnav collapse">
                         <li class="sidenav-subheading">Patients</li>
                         <li><a href="{{ route('patients') }}">All Patients</a></li>
-                        <li><a href="{{ route('patients', \App\Http\Controllers\HomeController::WIDGET_U5) }}">Under 5 years</a></li>
-                        <li><a href="{{ route('patients', \App\Http\Controllers\HomeController::WIDGET_O5) }}">Over 5 years</a></li>
-                        <li><a href="{{ route('patients', \App\Http\Controllers\HomeController::PATIENTS_WITH_DEBT) }}">With Outstanding Debts</a></li>
+                        <li><a href="{{ route('patients', \App\Http\Controllers\HomeController::WIDGET_U5) }}">Under 5
+                                years</a></li>
+                        <li><a href="{{ route('patients', \App\Http\Controllers\HomeController::WIDGET_O5) }}">Over 5
+                                years</a></li>
+                        <li><a href="{{ route('patients', \App\Http\Controllers\HomeController::PATIENTS_WITH_DEBT) }}">With
+                                Outstanding Debts</a></li>
                     </ul>
                 </li>
                 <li class="sidenav-item">
@@ -39,18 +42,24 @@
                     <ul class="sidenav-subnav collapse">
                         <li class="sidenav-subheading">Credits</li>
                         <li><a href="{{ route('credits') }}">All Credits</a></li>
-                        <li><a href="{{ route('credits', \App\Http\Controllers\HomeController::WIDGET_OUTSTANDING) }}">Pending <span class="badge badge-danger" style="font-size: 5px">&nbsp;</span></a></li>
-                        <li><a href="{{ route('credits', \App\Http\Controllers\HomeController::CREDITS_OVERPAID) }}">Overpaid <span class="badge badge-warning" style="font-size: 5px">&nbsp;</span></a></li>
-                        <li><a href="{{ route('credits', \App\Http\Controllers\HomeController::WIDGET_CLEARED) }}">Cleared <span class="badge badge-success" style="font-size: 5px">&nbsp;</span></a></li>
+                        <li><a href="{{ route('credits', \App\Http\Controllers\HomeController::WIDGET_OUTSTANDING) }}">Pending
+                                <span class="badge badge-danger" style="font-size: 5px">&nbsp;</span></a></li>
+                        <li><a href="{{ route('credits', \App\Http\Controllers\HomeController::CREDITS_OVERPAID) }}">Overpaid
+                                <span class="badge badge-warning" style="font-size: 5px">&nbsp;</span></a></li>
+                        <li><a href="{{ route('credits', \App\Http\Controllers\HomeController::WIDGET_CLEARED) }}">Cleared
+                                <span class="badge badge-success" style="font-size: 5px">&nbsp;</span></a></li>
                     </ul>
                 </li>
                 <li class="sidenav-heading">Administration</li>
-                <li class="sidenav-item">
-                    <a href="{{ route('users') }}">
-                        <span class="sidenav-icon icon icon-users"></span>
-                        <span class="sidenav-label">System Users</span>
-                    </a>
-                </li>
+
+                @if(Auth::user()->id == \App\Utils::SUPER_ADMIN_ID)
+                    <li class="sidenav-item">
+                        <a href="{{ route('users') }}">
+                            <span class="sidenav-icon icon icon-columns"></span>
+                            <span class="sidenav-label">System Users</span>
+                        </a>
+                    </li>
+                @endif
             </ul>
         </nav>
     </div>

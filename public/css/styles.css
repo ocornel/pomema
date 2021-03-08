@@ -33,6 +33,13 @@
     color: var(--theme-light-blue);
     font-size: 14px;
 }
+.masthead {
+    background-color: white;
+    color: var(--theme-dark-blue);
+}
+.masthead-heading, .masthead-lead {
+    color: var(--theme-dark-blue);
+}
 @media (max-width: 770px) {
     .navbar-brand-logo {
         height: 50px;
@@ -47,8 +54,8 @@
     color: var(--theme-dark-blue);
     font-weight: 500;
 }
-
-
-/*.layout-sidebar-backdrop {*/
-/*    background-color: var(--theme-dark-blue);*/
-/*}*/
+.btn-inactive {
+    background-color: #777777;
+    border-color: #777777;
+    color: #fff;
+}

@@ -29,12 +29,13 @@
         @isset($actions)
         <td>
             <a href="{{ route('edit_patient', [$patient, $patient->last_name]) }}" title="Edit"
-               class="btn-sm btn-secondary"><i class="fa fa-edit"></i></a>
-            <a href="{{ route('delete_patient', [$patient]) }}" title="Delete" class="btn-sm btn-danger"><i
-                    class="fa fa-trash"></i></a>
+               class="btn-sm btn-warning"><i class="fa fa-edit"></i></a>
+{{--            --}}
+{{--            <a href="{{ route('delete_patient', [$patient]) }}" title="Delete" class="btn-sm btn-danger"><i--}}
+{{--                    class="fa fa-trash-o"></i></a>--}}
         </td>@elseif(isset($extractions))
             <td>
-                <a href="" title="Disassociate" class="btn btn-secondary"><i class="fa fa-times"></i></a>
+{{--                <a href="" title="Disassociate" class="btn btn-secondary"><i class="fa fa-times"></i></a>--}}
             </td>
         @endisset
     </tr>

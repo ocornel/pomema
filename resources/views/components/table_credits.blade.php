@@ -27,9 +27,9 @@
         @isset($actions)
         <td>
             <a href="{{ route('edit_credit', [$credit, $credit->code]) }}" title="Edit"
-               class="btn-sm btn-secondary"><i class="fa fa-edit"></i></a>
-            <a href="{{ route('delete_credit', [$credit, $credit->code]) }}" title="Delete" class="btn-sm btn-danger"><i
-                    class="fa fa-trash"></i></a>
+               class="btn-sm btn-warning"><i class="fa fa-edit"></i></a>
+{{--            <a href="{{ route('delete_credit', [$credit, $credit->code]) }}" title="Delete" class="btn-sm btn-danger"><i--}}
+{{--                    class="fa fa-trash"></i></a>--}}
         </td>@endisset
     </tr>
     @empty

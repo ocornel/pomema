@@ -28,7 +28,6 @@
     {{--    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#27ae60">--}}
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,700">
     <link href="{{ asset('css/vendor.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/elephant.min.css') }}" rel="stylesheet">
