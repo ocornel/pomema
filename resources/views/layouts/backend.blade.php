@@ -37,6 +37,11 @@
     </div>
     <div class="layout-content">
         <div class="layout-content-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="search_results" class="hidden search-results"></div>
+                </div>
+            </div>
             @yield('page_content')
         </div>
     </div>

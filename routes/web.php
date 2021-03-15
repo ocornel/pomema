@@ -17,7 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//HOME
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('search', 'HomeController@search')->name('search');
+Route::get('/load_widget', 'HomeController@load_widget')->name('load_widget');
+
 
 //USERS
 Route::get('/users', 'UserController@index')->name('users');
@@ -66,5 +70,4 @@ Route::get('/dashboard_item_link/{title?}', 'HomeController@dashboard_item_link'
 
 
 //EXTRAS
-Route::get('/load_widget', 'HomeController@load_widget')->name('load_widget');
 Route::get('template_code', 'UtilsController@template_code')->name('template_code');

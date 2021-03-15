@@ -81,10 +81,10 @@
                     <div class="col-md-4">
                         <div class="form-group" data-toggle="match-height">
                             <label for="dob" class="control-label">Date of Birth</label>
-                            <div class="input-with-icon">
+{{--                            <div class="input-with-icon">--}}
                                 <input class="form-control" type="text" name="dob" id="dob" required data-provide="datepicker" data-date-today-highlight="true" value=" @isset($patient){{ \Carbon\Carbon::parse($patient->dob)->format('m/d/Y') }} @else {{ \Carbon\Carbon::parse(now())->format('m/d/Y') }} @endisset ">
                                 <span class="icon icon-calendar input-icon"></span>
-                            </div>
+{{--                            </div>--}}
                         </div>
                     </div>
                     <div class="col-md-4">
