@@ -64,7 +64,7 @@
                         <div class="form-group">
                             <label for="id_number" class="control-label">ID Number</label>
                             <input type="text" class="form-control" id="id_number"
-                                   name="id_number"
+                                   name="id_number" required
                                    @isset($nok_id)
                                        value = {{ $nok_id }}
                                    @elseif(isset($nok))
@@ -75,7 +75,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="phone" class="control-label">Phone Number</label>
-                            <input type="text" class="form-control" id="phone"
+                            <input type="text" class="form-control" id="phone" required
                                    name="phone"
                                    @isset($nok)
                                    value="{{ $nok->phone }}"
