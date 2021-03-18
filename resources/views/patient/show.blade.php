@@ -2,7 +2,8 @@
 
 @section('page_content')
     <div class="card">
-        <div class="card-header"><a href="{{ route('show_patient', [$patient, $patient->last_name]) }}">{{ $patient->full_name }}</a>
+        <div class="card-header"><a
+                href="{{ route('show_patient', [$patient, $patient->last_name]) }}">{{ $patient->full_name }}</a>
             <a style="float: right" class="btn btn-primary"
                href="{{ route('edit_patient', [$patient, $patient->last_name]) }}">Edit Patient</a>
         </div>
@@ -60,7 +61,7 @@
                                 <?php $nok = $patient->primary_nok ?>
                                 <a
                                     href="{{ route('show_nok', [$nok, $nok->last_name]) }}">{{ $nok->full_name }}</a>
-{{--                            {{ $patient->primary_nok->full_name }}--}}
+                                {{--                            {{ $patient->primary_nok->full_name }}--}}
                             @else
                                 None <small>(Edit Patient put NOK ID)</small>
                             @endisset
@@ -96,9 +97,16 @@
                        title="Download credit report for {{$patient->first_name}}"
                        href="{{ route('patient_credit_report', [$patient,'XLS', $patient->last_name]) }}"><i
                             class="fa fa-download"></i> XLS</a>
-                    <a style="float: right; margin: 1px 5px " class="btn btn-primary"
-                       title="Create new Credit entry for {{$patient->first_name}}"
-                       href="{{ route('create_credit', [$patient, $patient->last_name]) }}">New Credit</a>
+
+                    @if($patient->noks->count() > 0)
+                        <a style="float: right; margin: 1px 5px " class="btn btn-primary"
+                           title="Create new Credit entry for {{$patient->first_name}}"
+                           href="{{ route('create_credit', [$patient, $patient->last_name]) }}">New Credit</a>
+                    @else
+                        <span style="float: right; margin: 1px 5px " class="btn btn-inactive"
+                              title="You need to associate or create NOK to add credit!"
+                        >New Credit</span>
+                    @endif
 
                 </div>
             </div>
@@ -106,10 +114,20 @@
             @endcomponent
             <hr>
             <div class="row underline">
-                <div class="col-md-8"><h4 class=""><b>Next of Kins</b></h4></div>
-                <div class="col-md-4"><a style="float: right" class="btn btn-primary"
-                                         href="{{ route('associate_nok', [$patient, $patient->last_name]) }}">Associate
-                        NOK</a></div>
+                <div class="col-md-6"><h4 class=""><b>Next of Kins</b></h4></div>
+                <div class="col-md-6">
+                    <a style="float: right; margin: 1px 5px" class="btn btn-primary"
+                       title="Associate Existing contact people." target="_blank"
+                       href="{{ route('associate_nok', [$patient, $patient->last_name]) }}">Associate NOK</a>
+                    <a style="float: right; margin: 1px 5px" class="btn btn-primary"
+                       title="Create new contact person associated to this patient."
+                       href="{{ route('create_nok', [0, $patient, 0]) }}">Create NOK</a>
+
+{{--                    <a style="float: right" class="btn btn-primary"--}}
+{{--                       href="{{ route('associate_nok', [$patient, $patient->last_name]) }}">Associate NOK</a>--}}
+{{--                    <a style="float: right" class="btn btn-primary"--}}
+{{--                       href="{{ route('create_nok', [null, $patient]) }}">Create NOK</a>--}}
+                </div>
             </div>
             @component('components.table_noks', ['noks' => $patient->noks, 'extractions'=>true])
             @endcomponent
