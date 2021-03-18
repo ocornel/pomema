@@ -1,5 +1,5 @@
 function systemSearch(term) {
-    if (term !== ''){
+    if (term !== '') {
         console.log(term);
         $("#search_results").html('<span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>&nbsp;Please wait while searching.').addClass("text-info").removeClass('hidden');
         $.ajax({
@@ -78,3 +78,8 @@ function Associate(origin = 'patient', origin_id = 0, other_id = 0) {
         }
     });
 }
+
+function goBack() {
+    window.history.back();
+}
+

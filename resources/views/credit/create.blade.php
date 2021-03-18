@@ -28,7 +28,7 @@
                                        id="due_date" data-provide="datepicker"
                                        data-date-today-highlight="true"
                                        value=" @isset($credit){{ \Carbon\Carbon::parse($credit->due_date)->format('m/d/Y') }} @else
-                                       {{ \Carbon\Carbon::parse(now())->format('m/d/Y') }} @endisset ">
+                                       {{ \Carbon\Carbon::parse(now()->addDay())->format('m/d/Y') }} @endisset ">
                                 <span class="icon icon-calendar input-icon"></span>
                             </div>
                         </div>
@@ -57,6 +57,7 @@
 
                     </div>
                     <div class="col-md-12">
+                        <button onclick="goBack()"  class="btn btn-outline-warning" >Cancel</button>
                         <button type="submit" class="btn btn-outline-success pull-right">Submit</button>
                     </div>
                 </div>

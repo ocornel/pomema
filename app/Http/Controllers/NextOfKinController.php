@@ -70,8 +70,11 @@ class NextOfKinController extends Controller
                 'created_by' => $request['created_by'],
                 'is_primary' => $request['is_primary']
             ]);
+            Session::flash('success', 'Contact person created and associated successfully.');
+            $patient = Patient::find($pid);
+            return redirect(route('show_patient', [$patient, $patient->last_name]));
         }
-        Session::flash('success', 'Nex of Kin created successfully.');
+        Session::flash('success', 'Next of Kin created successfully.');
         return redirect(route('noks'));
     }
 
