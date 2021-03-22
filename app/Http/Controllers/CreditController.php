@@ -86,10 +86,12 @@ class CreditController extends Controller
                 'cleared_on'=>now()
             ]);
             $credit = Credit::create($request->all());
+            Session::flash('success', "Credit created successfully. An overpaid credit $overpaid->code has been utilized.");
             $credit->clear($over_amount);
         }
         else{
             $credit = Credit::create($request->all());
+            Session::flash('success', "Credit created successfully.");
         }
         return redirect(route('show_patient', [$patient, $patient->last_name]));
     }
@@ -98,7 +100,7 @@ class CreditController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Credit  $credit
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function show(Credit $credit)
     {
@@ -148,13 +150,13 @@ class CreditController extends Controller
             $amount_paid = $request->amount_paid;
             $result = $credit->clear($amount_paid);
             if ($overflow = $result['overflow'] > 0) {
-                Session::flash('success', "An overpayment credit of $overflow created for use on next patient credit.");
+                Session::flash('success', "Credit cleared successfully. An overpayment credit of $overflow created for use on next patient credit.");
             }
             elseif ($result['result'] == 'underpaid') {
                 Session::flash('success', "Credit cleared. Balance used to create new credit due today.");
             }
             elseif ($result['result'] == 'cleared') {
-                Session::flash('success', "Credit cleared.");
+                Session::flash('success', "Credit cleared successfully.");
             }
             return redirect(route('show_patient', [$credit->patient_id, $credit->patient->last_name]));
 
