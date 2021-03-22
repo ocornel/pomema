@@ -63,3 +63,9 @@
     content: "* ";
     font-weight: bold;
 }
+.search-results {
+    border: solid var(--theme-light-blue) 1px;
+    padding: 5px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}

@@ -72,7 +72,6 @@ class PatientController extends Controller
         $request['dob'] = date_create($request['dob']);
         $nok_id = $request['p_nok_id'];
         $patient = Patient::create($request->all());
-        Session::flash('success', 'Patient created');
         if (str_replace(' ','', $nok_id) !='') {
             $nok = NextOfKin::where('id_number', $nok_id)->first();
             if ($nok) {
@@ -82,15 +81,20 @@ class PatientController extends Controller
                     'created_by' => $patient->created_by,
                     'is_primary' => true
                 ]);
-            } else
+                Session::flash('success', "Patient $patient->full_name Created successfully.");
+
+            }
+            else {
+
 //            redirect to creating nok with this id number
                 $nok_context = [
                     'patient' => $patient,
                     'nok_id' => $nok_id,
                     'is_primary'=>true
                 ];
-            return redirect(route('create_nok', $nok_context));
-        }
+                Session::flash('message', "Patient Created successfully, now create primary next of kin for $patient->full_name");
+                return redirect(route('create_nok', $nok_context));
+            }}
         return redirect(route('patients'));
     }
 
@@ -165,11 +169,17 @@ class PatientController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\Patient $patient
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function destroy(Patient $patient)
     {
-        dd('delete patient here', $patient->attributesToArray());
+        if ($patient->credits->count()> 0){
+            Session::flash('error', 'Cannot delete patient with credit records.');
+            return redirect()->back();
+        }
+        $patient->delete();
+        Session::flash('success', 'Patient Deleted.');
+        return redirect(route('patients'));
     }
 
     public function associate_nok(Patient $patient)

@@ -39,6 +39,7 @@
         <div class="layout-content-body">
             <div class="row">
                 <div class="col-md-12">
+                    @include('components.message_toaster')
                     <div id="search_results" class="hidden search-results"></div>
                 </div>
             </div>
@@ -51,6 +52,7 @@
         </div>
     </div>
 </div>
+<div id="toaster"></div>
 <script src="{{ asset('js/vendor.min.js') }}"></script>
 <script src="{{ asset('js/elephant.min.js') }}"></script>
 <script src="{{ asset('js/application.min.js') }}"></script>
