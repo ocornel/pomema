@@ -29,12 +29,19 @@
     <script>
 
 
+
         $(document).ready(function () {
             load_dashboards();
             setInterval(function() {
                 load_dashboards();
             }, 5000);
-        })
+        });
+
+        // load table widget after 10 mins
+        setInterval(function() {
+            LoadWidget('due_debts', "{{App\Http\Controllers\HomeController::WIDGET_DUE}}");
+        }, 600000);
+
 
         function load_dashboards() {
             widget_containers = document.getElementsByClassName('dash_widget');
@@ -45,7 +52,7 @@
                 item_title = widget_id.replace(/_/g, " ")  ;
                 LoadWidget(widget_id, item_title, item);
             }
-            LoadWidget('due_debts', "{{App\Http\Controllers\HomeController::WIDGET_DUE}}")
+
         }
 
         function LoadWidget(widget_id, item_title,item=null) {
