@@ -71,7 +71,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="description" class="control-label">Phone Number</label>
-                            <input type="text" class="form-control" id="phone"
+                            <input type="text" class="form-control" id="phone" required
                                    name="phone"
                                    @isset($patient)
                                    value="{{ $patient->phone }}"
