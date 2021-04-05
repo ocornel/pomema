@@ -32,15 +32,17 @@
 
         $(document).ready(function () {
             load_dashboards();
+            LoadWidget('due_debts', "{{App\Http\Controllers\HomeController::WIDGET_DUE}}");
+            setInterval(function() {
+                LoadWidget('due_debts', "{{App\Http\Controllers\HomeController::WIDGET_DUE}}");
+            }, 600000);
             setInterval(function() {
                 load_dashboards();
             }, 5000);
         });
 
         // load table widget after 10 mins
-        setInterval(function() {
-            LoadWidget('due_debts', "{{App\Http\Controllers\HomeController::WIDGET_DUE}}");
-        }, 600000);
+
 
 
         function load_dashboards() {
