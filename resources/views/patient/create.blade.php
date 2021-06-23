@@ -106,6 +106,7 @@
                     </div>
                     <div class="col-md-12">
                         <button onclick="goBack()" class="btn btn-outline-warning" >Cancel</button>
+{{--                        todo on click submit hide/disable button--}}
                         <button type="submit" class="btn btn-outline-success pull-right">Submit</button>
                     </div>
                 </div>
